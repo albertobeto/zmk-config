@@ -46,8 +46,8 @@
     , <&pro_micro  6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
     , <&pro_micro  3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
     , <&pro_micro  1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+    , <&pro_micro  19 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
     , <&pro_micro  20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-    , <&pro_micro  21 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
     ;
 };
 
@@ -86,7 +86,7 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                            &lt 2 TAB   &kp BSPC     &kp SPACE  &lt 1 BSPC
+                                            &lt 2 TAB   &kp BSPC     &kp SPACE  &lt 1 ENTER
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
