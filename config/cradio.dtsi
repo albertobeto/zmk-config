@@ -46,12 +46,12 @@
             , <&key_physical_attrs 100 100  900  200       0     0     0>
             , <&key_physical_attrs 100 100 1000  231       0     0     0>
             , <&key_physical_attrs 100 100 1100  295       0     0     0>
-            , <&key_physical_attrs 100 100  230  355    1500   430   455>
+            , <&key_physical_attrs 100 100  200  355    1000   430   455>
             , <&key_physical_attrs 100 100  330  355    1500   430   455>
             , <&key_physical_attrs 100 100  430  355    3000   430   455>
             , <&key_physical_attrs 100 100  670  355 (-3000)   770   455>
             , <&key_physical_attrs 100 100  770  355 (-1500)   770   455>
-            , <&key_physical_attrs 100 100  870  355 (-1500)   770   455>
+            , <&key_physical_attrs 100 100  900  355 (-1000)   770   455>
             ;
     };
 
@@ -77,8 +77,8 @@
 
     input-gpios
     = <&pro_micro  1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-    , <&pro_micro 3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-    , <&pro_micro 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+    , <&pro_micro 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+    , <&pro_micro 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
     , <&pro_micro 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
     , <&pro_micro 18 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
     , <&pro_micro 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
