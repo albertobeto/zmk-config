@@ -44,11 +44,11 @@
         //│  Q       │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │  P       │
             &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │ ; :      │
-            &kp A  HRML( S,         D)      &kp F      &kp G          &kp H     &kp J    HRMR(   K,         L)      &kp SEMI
+        //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │   ENTER  │
+            &kp A  HRML( S,         D)      &kp F      &kp G          &kp H     &kp J    HRMR(   K,         L)      &kp ENTER
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
-            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
+        //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ ; :      │
+            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp SEMI
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                   &to 1     &kp BSPC    &kp LSHIFT         &kp RCTRL  &kp SPACE   &to 2
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -58,11 +58,11 @@
         right_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ ` ~      │  {       │	  }    │     !    │     |    │   │   _      │   =      │    8     │   9      │    .     │
-            &kp GRAVE   &kp LBRC   &kp RBRC   &kp EXCL   &kp PIPE      &kp UNDER   &kp PG_DN  &kp N8  &kp N9    &kp DQT
+        //│ ` ~      │  {       │	  }    │     !    │     |    │   │   *      │   =      │    8     │   9      │    .     │
+            &kp GRAVE   &kp LBRC   &kp RBRC   &kp EXCL   &kp PIPE      &kp STAR   &kp PG_DN  &kp N8  &kp N9    &kp DQT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│   '      │ 	 (      │  )       │  ENTER   │   *      │   │   -      │   0      │  1       │   2      │  3       │
-            &kp SQT    &kp LPAR   &kp RPAR   &kp ENTER   &kp ASTRK         &kp MINUS   &kp N0   &kp N1   &kp N2   &kp N3
+        //│   '      │ 	 (      │  )       │  -       │   _      │   │   /      │   0      │  1       │   2      │  3       │
+            &kp SQT    HRML( LPAR, RPAR)   &kp MINUS   &kp UNDER     &kp SLASH   &kp N0   HRMR( N1,   N2)   &kp N3
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│    "     │  [       │  ]       │  &       │  #       │   │    +     │     4    │   5      │   6      │   7      │
            &kp DQT    &kp LBKT  &kp RBKT     &kp AMPS    &kp HASH         &kp PLUS     &kp N4     &kp N5     &kp N6     &kp N7
@@ -75,11 +75,11 @@
         left_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│    F4    │  Home    │    UP    │  END     │ Vol up   │   │Next&UpLyr│  %       │  ^       │  ~       │ BrightUp │
-            &kp F4     &kp HOME   &kp UP   &kp END   &kp C_VOL_UP     &lt 3 C_NEXT  &kp PRCNT   &kp CARET   &kp TILDE   &kp C_BRI_UP
+        //│    F4    │  Home    │    UP    │  END     │ Vol up   │   │ ^ & UpLyr│  %       │  ?       │  ~       │ BrightUp │
+            &kp F4     &kp HOME   &kp UP   &kp END   &kp C_VOL_UP     &lt 3 CARET  &kp PRCNT   &kp QMARK   &kp TILDE   &kp C_BRI_UP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│Play/Pause│  Left    │  Down    │  RIGHT   │ mute     │   | MousMid  │LeftClick │ MousBtn4 │ MousBtn5 │rightClick│
-            &kp C_PP   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &kp ASTRK  &kp MINUS  &kp EQUAL  &kp BSLH   &kp GRAVE
+            &kp C_PP   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &kp ASTRK  &kp MINUS  HRML( EQUAL, BSLH)   &kp GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  F11     │   PgUp   │  TAb     │  PgDwn   │ Vol down │   │ PRintScrn|  @       │  \       │  $       │ BrightDwn│
             &kp F11   &kp PG_UP   &kp TAB  &kp PG_DN  &kp C_VOL_DN    &kp PSCRN   &kp AT  &kp BSLH   &kp DLLR   &kp C_BRI_DN
@@ -95,8 +95,8 @@
         //│  BT0     │  Bt1     │     BT2  │  BT3     |          │   │KeepUpLaye│          │          │          │          │
          &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &none     &trans     &none     &none    &none      &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │ PrevSong │          │          │   │          │          │          │          │          │
-            &none     &none     &kp C_PREV    &none     &none          &none     &none         &none   &none       &none    
+        //│          │ CapsLock │ PrevSong │ NextSong │          │   │          │          │          │          │          │
+            &none     &kp CAPS   &kp C_PREV    &kp C_NEXT   &none          &none     &none         &none   &none       &none    
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ CLEAR BT │          │          │ RESET    │BOOTLOADER│   │BOOTLOADER│ RESET    │          │          │          │
             &bt BT_CLR   &none      &none   &sys_reset &bootloader    &bootloader  &sys_reset   &none     &none     &none
