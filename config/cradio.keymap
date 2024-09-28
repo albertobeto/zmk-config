@@ -21,16 +21,16 @@
     combos {
         compatible = "zmk,combos";
         combo_copy {
-            timeout-ms = <500>;
+            timeout-ms = <50>;
             key-positions = <21 22>;
-            bindings = <&kp Y>;
-           // require-prior-idle-ms = <100>;
+            bindings = <&kp RC(C)>;
+            require-prior-idle-ms = <50>;
         };
         combo_paste {
-            timeout-ms = <500>;
+            timeout-ms = <50>;
             key-positions = <22 23>;
-            bindings = <&kp H>;
-           // require-prior-idle-ms = <100>;
+            bindings = <&kp RC(V)>;
+            require-prior-idle-ms = <50>;
         };
     };
 
@@ -56,9 +56,16 @@
         space_enter: space_enter {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp SPACE>, <&kp ENTER>;
+            bindings = <&kp ENTER>, <&kp LC(ENTER)>;
+            mods = <(MOD_RGUI|MOD_RALT)>;
+        };
+        space_enter_ctrl: space_enter_ctrl {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE>, <&space_enter>;
             mods = <(MOD_LSFT)>;
         };
+
 
         coma_sqt: comma_undescore {
             compatible = "zmk,behavior-mod-morph";
@@ -118,7 +125,7 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , '      │ . "      │ = ; RC(/)│
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_sqt  &dot_dqt  &equal_semi_comment
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                  &to 1     &bspc_del    &kp LSHIFT         &kp RCTRL  &space_enter   &to 2
+                                  &to 1     &bspc_del    &kp LSHIFT    &kp RCTRL  &space_enter_ctrl   &to 2
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -135,7 +142,7 @@
         //│    >     │  [       │  ]       │  &       │  ?       │   │    +     │     4    │   5      │   6      │   7      │
            &kp GT    &kp LBKT  &kp RBKT     &kp AMPS    &kp QMARK         &kp PLUS     &kp N4     &kp N5     &kp N6     &kp N7
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                   &to 2     &bspc_del   &kp LSHIFT    &kp RCTRL   &space_enter    &to 0
+                                   &to 2     &bspc_del   &kp LSHIFT    &kp RCTRL   &space_enter_ctrl    &to 0
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -147,12 +154,12 @@
             &kp F4     &kp HOME   &kp UP   &kp END   &kp C_VOL_UP     &lt 3 CARET  &kp PRCNT   &kp ESC   &kp TILDE   &kp C_BRI_UP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│Play/Pause│  Left    │  Down    │  RIGHT   │ mute     │   | MousMid  │LeftClick │ MousBtn4 │ MousBtn5 │rightClick│
-            &kp C_PP   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &kp ASTRK  &kp MINUS  HRML( EQUAL, BSLH)   &kp GRAVE
+            &kp C_PP   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &kp ASTRK  &kp MINUS  HRMR( EQUAL, BSLH)   &kp GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  F11     │   PgUp   │  TAb     │  PgDwn   │ Vol down │   │ PRintScrn|  @       │  \       │  $       │ BrightDwn│
             &kp F11   &kp PG_UP   &kp TAB  &kp PG_DN  &kp C_VOL_DN    &kp PSCRN   &kp AT  &kp BSLH   &kp DLLR   &kp C_BRI_DN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                 &to 1     &bspc_del     &kp LSHIFT      &kp RCTRL     &space_enter    &to 0
+                                 &to 1     &bspc_del     &kp LSHIFT      &kp RCTRL     &space_enter_ctrl    &to 0
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
