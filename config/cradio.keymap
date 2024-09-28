@@ -26,8 +26,6 @@
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
         };
-    };
-
         bspc_del: backspace_delete {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -42,6 +40,8 @@
             mods = <(MOD_LSFT)>;
         };
   
+    };
+
 
 
 
