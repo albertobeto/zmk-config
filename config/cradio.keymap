@@ -56,7 +56,7 @@
         space_enter: space_enter {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp ENTER>, <&kp LC(ENTER)>;
+            bindings = <&kp ENTER>, <&kp F>;
             mods = <(MOD_RGUI|MOD_RALT)>;
         };
         space_enter_ctrl: space_enter_ctrl {
@@ -123,9 +123,9 @@
             &kp A  HRML( S,         D)      &kp F      &kp G          &kp H     &kp J    HRMR(   K,         L)      &under_dash
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , '      │ . "      │ = ; RC(/)│
-            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_sqt  &dot_dqt  &equal_semi_comment
+            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp LC(ENTER)    &coma_sqt  &dot_dqt  &equal_semi_comment
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                  &to 1     &bspc_del    &kp LSHIFT    &kp RCTRL  &space_enter_ctrl   &to 2 
+                                  &to 1     &bspc_del    &kp LSHIFT    &kp RCTRL  &space_enter_ctrl   &to 2    &kp A
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -142,7 +142,7 @@
         //│    >     │  [       │  ]       │  &       │  ?       │   │    +     │     4    │   5      │   6      │   7      │
            &kp GT    &kp LBKT  &kp RBKT     &kp AMPS    &kp QMARK         &kp PLUS     &kp N4     &kp N5     &kp N6     &kp N7
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                   &to 2     &bspc_del   &kp LSHIFT    &kp RCTRL   &space_enter_ctrl    &to 0  
+                                   &to 2     &bspc_del   &kp LSHIFT    &kp RCTRL   &space_enter_ctrl    &to 0  &kp D
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -159,7 +159,7 @@
         //│  F11     │   PgUp   │  TAb     │  PgDwn   │ Vol down │   │ PRintScrn|  @       │  \       │  $       │ BrightDwn│
             &kp F11   &kp PG_UP   &kp TAB  &kp PG_DN  &kp C_VOL_DN    &kp PSCRN   &kp AT  &kp BSLH   &kp DLLR   &kp C_BRI_DN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                 &to 1     &bspc_del     &kp LSHIFT      &kp RCTRL     &space_enter_ctrl    &to 0 
+                                 &to 1     &bspc_del     &kp LSHIFT      &kp RCTRL     &space_enter_ctrl    &to 0  &kp F
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -176,7 +176,7 @@
         //│ CLEAR BT │          │          │ RESET    │BOOTLOADER│   │BOOTLOADER│ RESET    │          │          │          │
             &bt BT_CLR   &none      &none   &sys_reset &bootloader    &bootloader  &sys_reset   &none     &none     &none
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                    &none        &none     &none         &none     &none    &none    
+                                    &none        &none     &none         &none     &none    &none    &none
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
