@@ -21,16 +21,16 @@
     combos {
         compatible = "zmk,combos";
         combo_copy {
-            timeout-ms = <50>;
+            timeout-ms = <500>;
             key-positions = <11 12>;
             bindings = <&kp K>;
-            require-prior-idle-ms = <100>;
+           // require-prior-idle-ms = <100>;
         };
         combo_paste {
-            timeout-ms = <50>;
+            timeout-ms = <500>;
             key-positions = <12 13>;
-            bindings = <&kp R>;
-            require-prior-idle-ms = <100>;
+            bindings = <&kp LC(V)>;
+           // require-prior-idle-ms = <100>;
         };
     };
 
@@ -76,7 +76,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  Q       │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │  P       │
-            &kp LC(C)      &kp M      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
+            &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │   ENTER  │
             &kp A  HRML( S,         D)      &kp F      &kp G          &kp H     &kp J    HRMR(   K,         L)      &kp MINUS
