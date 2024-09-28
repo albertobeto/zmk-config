@@ -20,68 +20,16 @@
     
     combos {
         compatible = "zmk,combos";
-        
-        combo_0 {
-            timeout-ms = <500>;
-            key-positions = <0 1>;
-            bindings = <&kp N0>;
-           // require-prior-idle-ms = <100>;
-        };
-        combo_1 {
-            timeout-ms = <500>;
-            key-positions = <1 3>;
-            bindings = <&kp N1>;
-           // require-prior-idle-ms = <100>;
-        };
-        combo_2 {
-            timeout-ms = <500>;
-            key-positions = <3 4>;
-            bindings = <&kp N2>;
-           // require-prior-idle-ms = <100>;
-        };
-        combo_3 {
-            timeout-ms = <500>;
-            key-positions = <4 6>;
-            bindings = <&kp N3>;
-           // require-prior-idle-ms = <100>;
-        };
-        combo_4 {
-            timeout-ms = <500>;
-            key-positions = <6 8>;
-            bindings = <&kp N4>;
-           // require-prior-idle-ms = <100>;
-        };
-        combo_5 {
-            timeout-ms = <500>;
-            key-positions = <8 10>;
-            bindings = <&kp N5>;
-           // require-prior-idle-ms = <100>;
-        };
-        combo_6 {
-            timeout-ms = <500>;
-            key-positions = <10 15>;
-            bindings = <&kp N6>;
-           // require-prior-idle-ms = <100>;
-        };
-        combo_7 {
-            timeout-ms = <500>;
-            key-positions = <15 17>;
-            bindings = <&kp N7>;
-           // require-prior-idle-ms = <100>;
-        };
-
-
-
         combo_copy {
             timeout-ms = <500>;
-            key-positions = <11 12>;
-            bindings = <&kp N8>;
+            key-positions = <21 22>;
+            bindings = <&kp Y>;
            // require-prior-idle-ms = <100>;
         };
         combo_paste {
             timeout-ms = <500>;
-            key-positions = <12 13>;
-            bindings = <&kp N9>;
+            key-positions = <22 23>;
+            bindings = <&kp H>;
            // require-prior-idle-ms = <100>;
         };
     };
@@ -96,33 +44,61 @@
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
         };
+
+
         bspc_del: backspace_delete {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp BSPC>, <&kp DEL>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LSFT|MOD_RGUI|MOD_RALT)>;
         };
     
-        space_enter: space_enter_key {
+        space_enter: space_enter {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp SPACE>, <&kp ENTER>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LSFT)>;
         };
 
-        coma_under: comma_undescore {
+        coma_sqt: comma_undescore {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp UNDER>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            bindings = <&kp COMMA>, <&kp SQT>;
+            mods = <(MOD_LSFT)>;
         };
-        mod_undescore: mod_undescore {
+        dot_dqt: dot_dqt {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp MINUS>;
-            mods = <(MOD_LGUI|MOD_LSFT|MOD_RGUI|MOD_RSFT|MOD_LCTL|MOD_RCTL)>;
+            bindings = <&kp DOT>, <&kp DQT>;
+            mods = <(MOD_LSFT)>;
+        };
+        under_dash: under_dash {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp UNDER>, <&kp MINUS>;
+            mods = <(MOD_LSFT)>;
         };
 
+        semi_comment: semi_comment {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SEMI>, <&kp SLASH>;
+            mods = <(MOD_RCTL)>;;
+            keep-mods = <(MOD_RCTL)>;
+        };
+        equal_semi_comment: equal_semi_comment {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp EQUAL>, <&semi_comment>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        tilde_escape: tilde_escape {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp GRAVE>, <&kp ESC>;
+            mods = <(MOD_LSFT|MOD_RCTL)>;
+        };
         
     };
 
@@ -136,13 +112,13 @@
         //│  Q       │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │  P       │
             &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │   ENTER  │
-            &kp A  HRML( S,         D)      &kp F      &kp G          &kp H     &kp J    HRMR(   K,         L)      &kp MINUS
+        //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │   _  -   │
+            &kp A  HRML( S,         D)      &kp F      &kp G          &kp H     &kp J    HRMR(   K,         L)      &under_dash
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ ; :      │
-            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &mod_undescore    &kp SEMI
+        //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , '      │ . "      │ = ; RC(/)│
+            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_sqt  &dot_dqt  &equal_semi_comment
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                  &to 1     &kp BSPC    &kp LSHIFT         &kp RCTRL  &kp SPACE   &to 2
+                                  &to 1     &bspc_del    &kp LSHIFT         &kp RCTRL  &space_enter   &to 2
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -150,16 +126,16 @@
         right_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ ` ~      │  {       │	  }    │     !    │     |    │   │   *      │   =      │    8     │   9      │    .     │
-            &kp GRAVE   &kp LBRC   &kp RBRC   &kp EXCL   &kp PIPE      &kp STAR   &kp PG_DN  &kp N8  &kp N9    &kp DQT
+        //│ `  ESC   │  {       │	  }    │     !    │     :    │   │   *      │   ,      │    8     │   9      │    .     │
+          &tilde_escape   &kp LBRC  &kp RBRC  &kp EXCL  &kp COLON      &kp STAR   &kp COMMA  &kp N8  &kp N9    &kp DQT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│   '      │ 	 (      │  )       │  -       │   _      │   │   /      │   0      │  1       │   2      │  3       │
-            &kp SQT    HRML( LPAR, RPAR)   &kp MINUS   &kp UNDER     &kp SLASH   &kp N0   HRMR( N1,   N2)   &kp N3
+        //│   <      │ 	 (      │  )       │  #       │   |      │   │   /      │   0      │  1       │   2      │  3       │
+            &kp LT    HRML( LPAR, RPAR)   &kp HASH   &kp PIPE          &kp SLASH   &kp N0   HRMR( N1,   N2)   &kp N3
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│    "     │  [       │  ]       │  &       │  #       │   │    +     │     4    │   5      │   6      │   7      │
-           &kp DQT    &kp LBKT  &kp RBKT     &kp AMPS    &kp HASH         &kp PLUS     &kp N4     &kp N5     &kp N6     &kp N7
+        //│    >     │  [       │  ]       │  &       │  ?       │   │    +     │     4    │   5      │   6      │   7      │
+           &kp GT    &kp LBKT  &kp RBKT     &kp AMPS    &kp QMARK         &kp PLUS     &kp N4     &kp N5     &kp N6     &kp N7
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                   &to 2     &kp BSPC   &kp ESC        &kp RCTRL     &kp SPACE    &to 0
+                                   &to 2     &bspc_del   &kp LSHIFT    &kp RCTRL   &space_enter    &to 0
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -167,8 +143,8 @@
         left_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│    F4    │  Home    │    UP    │  END     │ Vol up   │   │ ^ & UpLyr│  %       │  ?       │  ~       │ BrightUp │
-            &kp F4     &kp HOME   &kp UP   &kp END   &kp C_VOL_UP     &lt 3 CARET  &kp PRCNT   &kp QMARK   &kp TILDE   &kp C_BRI_UP
+        //│    F4    │  Home    │    UP    │  END     │ Vol up   │   │ ^ & UpLyr│  %       │  ESC     │  ~       │ BrightUp │
+            &kp F4     &kp HOME   &kp UP   &kp END   &kp C_VOL_UP     &lt 3 CARET  &kp PRCNT   &kp ESC   &kp TILDE   &kp C_BRI_UP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│Play/Pause│  Left    │  Down    │  RIGHT   │ mute     │   | MousMid  │LeftClick │ MousBtn4 │ MousBtn5 │rightClick│
             &kp C_PP   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &kp ASTRK  &kp MINUS  HRML( EQUAL, BSLH)   &kp GRAVE
@@ -176,7 +152,7 @@
         //│  F11     │   PgUp   │  TAb     │  PgDwn   │ Vol down │   │ PRintScrn|  @       │  \       │  $       │ BrightDwn│
             &kp F11   &kp PG_UP   &kp TAB  &kp PG_DN  &kp C_VOL_DN    &kp PSCRN   &kp AT  &kp BSLH   &kp DLLR   &kp C_BRI_DN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                 &to 1     &kp BSPC     &kp LSHIFT      &kp RCTRL     &kp DEL    &to 0
+                                 &to 1     &bspc_del     &kp LSHIFT      &kp RCTRL     &space_enter    &to 0
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
