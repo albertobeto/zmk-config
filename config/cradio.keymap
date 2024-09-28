@@ -83,7 +83,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp SEMI>, <&kp SLASH>;
-            mods = <(MOD_RCTL)>;;
+            mods = <(MOD_RCTL)>;
             keep-mods = <(MOD_RCTL)>;
         };
         equal_semi_comment: equal_semi_comment {
