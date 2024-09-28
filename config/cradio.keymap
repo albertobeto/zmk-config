@@ -28,6 +28,23 @@
         };
     };
 
+        bspc_del: backspace_delete {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC>, <&kp DEL>;
+            mods = <(MOD_LSFT)>;
+        };
+    
+        space_enter: space_enter_key {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE>, <&kp ENTER>;
+            mods = <(MOD_LSFT)>;
+        };
+  
+
+
+
 //    conditional_layers {
   //      compatible = "zmk,conditional-layers";
     //    tri_layer {
