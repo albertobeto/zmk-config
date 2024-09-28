@@ -16,6 +16,24 @@
 
 
 / {
+    
+    
+    combos {
+        compatible = "zmk,combos";
+        combo_copy {
+            timeout-ms = <50>;
+            key-positions = <11 12>;
+            bindings = <&kp RC(C)>;
+            require-prior-idle-ms = <100>;
+        };
+        combo_paste {
+            timeout-ms = <50>;
+            key-positions = <12 13>;
+            bindings = <&kp RC(V)>;
+            require-prior-idle-ms = <100>;
+        };
+    };
+
     behaviors {
         ht: hold_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -51,15 +69,6 @@
     };
 
 
-
-
-//    conditional_layers {
-  //      compatible = "zmk,conditional-layers";
-    //    tri_layer {
-      //      if-layers = <1 2>;
-        //    then-layer = <3>;
-        //};
-    //};
 
     keymap {
         compatible = "zmk,keymap";
