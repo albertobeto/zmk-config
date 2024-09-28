@@ -29,44 +29,44 @@
         };
         combo_1 {
             timeout-ms = <500>;
-            key-positions = <2 3>;
+            key-positions = <1 3>;
             bindings = <&kp N1>;
            // require-prior-idle-ms = <100>;
         };
         combo_2 {
             timeout-ms = <500>;
             key-positions = <3 4>;
-            bindings = <&kp N>;
+            bindings = <&kp N2>;
            // require-prior-idle-ms = <100>;
         };
         combo_3 {
             timeout-ms = <500>;
-            key-positions = <5 6>;
-            bindings = <&kp N>;
+            key-positions = <4 6>;
+            bindings = <&kp N3>;
            // require-prior-idle-ms = <100>;
         };
         combo_4 {
             timeout-ms = <500>;
-            key-positions = <7 8>;
-            bindings = <&kp N>;
+            key-positions = <6 8>;
+            bindings = <&kp N4>;
            // require-prior-idle-ms = <100>;
         };
         combo_5 {
             timeout-ms = <500>;
-            key-positions = <9 10>;
-            bindings = <&kp N>;
+            key-positions = <8 10>;
+            bindings = <&kp N5>;
            // require-prior-idle-ms = <100>;
         };
         combo_6 {
             timeout-ms = <500>;
-            key-positions = <14 15>;
-            bindings = <&kp N>;
+            key-positions = <10 15>;
+            bindings = <&kp N6>;
            // require-prior-idle-ms = <100>;
         };
         combo_7 {
             timeout-ms = <500>;
-            key-positions = <16 17>;
-            bindings = <&kp N>;
+            key-positions = <15 17>;
+            bindings = <&kp N7>;
            // require-prior-idle-ms = <100>;
         };
 
@@ -116,6 +116,12 @@
             bindings = <&kp COMMA>, <&kp UNDER>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        mod_undescore: mod_undescore {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp MINUS>;
+            mods = <(MOD_LGUI|MOD_LSFT|MOD_RGUI|MOD_RSFT|MOD_LCTL|MOD_RCTL)>;
+        };
 
         
     };
@@ -134,7 +140,7 @@
             &kp A  HRML( S,         D)      &kp F      &kp G          &kp H     &kp J    HRMR(   K,         L)      &kp MINUS
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ ; :      │
-            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp SEMI
+            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &mod_undescore    &kp SEMI
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                   &to 1     &kp BSPC    &kp LSHIFT         &kp RCTRL  &kp SPACE   &to 2
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
