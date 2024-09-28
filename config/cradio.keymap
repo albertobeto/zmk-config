@@ -20,16 +20,68 @@
     
     combos {
         compatible = "zmk,combos";
+        
+        combo_0 {
+            timeout-ms = <500>;
+            key-positions = <0 1>;
+            bindings = <&kp N0>;
+           // require-prior-idle-ms = <100>;
+        };
+        combo_1 {
+            timeout-ms = <500>;
+            key-positions = <2 3>;
+            bindings = <&kp N1>;
+           // require-prior-idle-ms = <100>;
+        };
+        combo_2 {
+            timeout-ms = <500>;
+            key-positions = <3 4>;
+            bindings = <&kp N>;
+           // require-prior-idle-ms = <100>;
+        };
+        combo_3 {
+            timeout-ms = <500>;
+            key-positions = <5 6>;
+            bindings = <&kp N>;
+           // require-prior-idle-ms = <100>;
+        };
+        combo_4 {
+            timeout-ms = <500>;
+            key-positions = <7 8>;
+            bindings = <&kp N>;
+           // require-prior-idle-ms = <100>;
+        };
+        combo_5 {
+            timeout-ms = <500>;
+            key-positions = <9 10>;
+            bindings = <&kp N>;
+           // require-prior-idle-ms = <100>;
+        };
+        combo_6 {
+            timeout-ms = <500>;
+            key-positions = <14 15>;
+            bindings = <&kp N>;
+           // require-prior-idle-ms = <100>;
+        };
+        combo_7 {
+            timeout-ms = <500>;
+            key-positions = <16 17>;
+            bindings = <&kp N>;
+           // require-prior-idle-ms = <100>;
+        };
+
+
+
         combo_copy {
             timeout-ms = <500>;
             key-positions = <11 12>;
-            bindings = <&kp K>;
+            bindings = <&kp N8>;
            // require-prior-idle-ms = <100>;
         };
         combo_paste {
             timeout-ms = <500>;
             key-positions = <12 13>;
-            bindings = <&kp LC(V)>;
+            bindings = <&kp N9>;
            // require-prior-idle-ms = <100>;
         };
     };
