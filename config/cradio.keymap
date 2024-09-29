@@ -155,7 +155,7 @@
             &kp F4     &kp HOME   &kp UP   &kp END   &kp C_VOL_UP     &lt 3 CARET  &kp PRCNT   &kp ESC   &kp TILDE   &kp C_BRI_UP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│Play/Pause│  Left    │  Down    │  RIGHT   │ mute     │   | MousMid  │LeftClick │ MousBtn4 │ MousBtn5 │rightClick│
-            &kp C_PP   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &mkp MCLK  &mkp LCLK  HRMR( &mkp MB4, &mkp MB5)   &mkp RCLK
+            &kp C_PP   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &mkp MCLK  &mkp LCLK  HRMR( A, B)   &mkp RCLK
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  F11     │   PgUp   │  TAb     │  PgDwn   │ Vol down │   │ PRintScrn|  @       │  \       │  $       │ BrightDwn│
             &kp F11   &kp PG_UP   &kp TAB  &kp PG_DN  &kp C_VOL_DN    &kp PSCRN   &kp AT  &kp BSLH   &kp DLLR   &kp C_BRI_DN
