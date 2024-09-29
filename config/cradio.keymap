@@ -100,13 +100,6 @@
             bindings = <&kp EQUAL>, <&semi_comment>;
             mods = <(MOD_LSFT)>;
         };
-
-        tilde_escape: tilde_escape {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp GRAVE>, <&kp ESC>;
-            mods = <(MOD_LSFT|MOD_RCTL)>;
-        };
         
     };
 
@@ -134,14 +127,14 @@
         right_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ `  ESC   │  {       │	  }    │     !    │     :    │   │   *      │   ,      │    8     │   9      │    .     │
-          &tilde_escape   &kp LBRC  &kp RBRC  &kp EXCL  &kp COLON      &kp STAR   &kp COMMA  &kp N8  &kp N9    &kp DQT
+        //│  <       │  {       │	  }    │     +    │     ~    │   │   ?      │   ,      │    8     │   9      │    .     │
+            &kp LT   &kp LBRC       &kp RBRC  &kp PLUS  &kp TILDE      &kp QMARK   &kp COMMA  &kp N8  &kp N9    &kp DQT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│   <      │ 	 (      │  )       │  #       │   |      │   │   /      │   0      │  1       │   2      │  3       │
-            &kp LT    HRML( LPAR, RPAR)   &kp HASH   &kp PIPE          &kp SLASH   &kp N0   HRMR( N1,   N2)   &kp N3
+        //│   !      │ 	 (      │  )       │  /       │   |      │   │   *      │   0      │  1       │   2      │  3       │
+            &kp EXCL    HRML( LPAR, RPAR)   &kp SLASH   &kp PIPE          &kp STAR   &kp N0   HRMR( N1,   N2)   &kp N3
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│    >     │  [       │  ]       │  &       │  ?       │   │    +     │     4    │   5      │   6      │   7      │
-           &kp GT    &kp LBKT  &kp RBKT     &kp AMPS    &kp QMARK         &kp PLUS     &kp N4     &kp N5     &kp N6     &kp N7
+        //│    >     │  [       │  ]       │  &       │  \       │   │    `     │     4    │   5      │   6      │   7      │
+           &kp GT    &kp LBKT  &kp RBKT     &kp AMPS    &kp BSLH         &kp GRAVE     &kp N4     &kp N5     &kp N6     &kp N7
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                    &to 2     &bspc_del   &kp LSHIFT    &kp RCTRL   &space_enter_ctrl    &to 0 
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -151,14 +144,14 @@
         left_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│    F4    │  Home    │    UP    │  END     │ Vol up   │   │ ^ & UpLyr│ MousBtn4 │  ESC     │ MousBtn5 │ BrightUp │
-            &kp F4     &kp HOME   &kp UP   &kp END   &kp C_VOL_UP     &lt 3 CARET  &mkp MB4  &kp ESC   &mkp MB5   &kp C_BRI_UP
+        //│    F11   │  Home    │    UP    │  END     │ Vol up   │   │ ^ & UpLyr│ MousBtn4 │  ESC     │ MousBtn5 │ BrightUp │
+            &kp F11     &kp HOME   &kp UP   &kp END   &kp C_VOL_UP     &lt 3 CARET  &mkp MB4  &kp ESC   &mkp MB5   &kp C_BRI_UP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│Play/Pause│  Left    │  Down    │  RIGHT   │ mute     │   | MousMid  │LeftClick │  %       │  ~       │rightClick│
-            &kp C_PP   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &mkp MCLK  &mkp LCLK  HRMR( PRCNT, TILDE)   &mkp RCLK
+        //│  TAB     │  Left    │  Down    │  RIGHT   │ mute     │   | MousMid  │LeftClick │   #      │  :       │rightClick│
+            &kp TAB   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &mkp MCLK  &mkp LCLK  HRMR( HASH, COLON)   &mkp RCLK
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  F11     │   PgUp   │  TAb     │  PgDwn   │ Vol down │   │ PRintScrn|  @       │  \       │  $       │ BrightDwn│
-            &kp F11   &kp PG_UP   &kp TAB  &kp PG_DN  &kp C_VOL_DN    &kp PSCRN   &kp AT  &kp BSLH   &kp DLLR   &kp C_BRI_DN
+        //│   F4     │   PgUp   │Play/Pause│  PgDwn   │ Vol down │   │ PRintScrn|  @       │  %       │  $       │ BrightDwn│
+            &kp F4   &kp PG_UP   &kp C_PP  &kp PG_DN  &kp C_VOL_DN    &kp PSCRN   &kp AT  &kp PRCNT   &kp DLLR   &kp C_BRI_DN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                  &to 1     &bspc_del     &kp LSHIFT      &kp RCTRL     &space_enter_ctrl    &to 0 
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
