@@ -5,6 +5,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/outputs.h>
 
 #include "cradio.dtsi"
 
@@ -161,14 +162,14 @@
         tri_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  BT0     │  Bt1     │     BT2  │  BT3     |          │   │KeepUpLaye│          │          │          │          │
-         &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &none     &trans     &none     &none    &none      &none
+        //│  BT0     │  Bt1     │     BT2  │  BT3     | CLEAR BT │   │KeepUpLaye│          │          │          │          │
+      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &bt BT_CLR     &trans     &none     &none    &none      &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │ CapsLock │ PrevSong │ NextSong │          │   │          │          │          │          │          │
-            &none     &kp CAPS   &kp C_PREV    &kp C_NEXT   &none          &none     &none         &none   &none       &none    
+        //│USB BLE TG│ CapsLock │ PrevSong │ NextSong │          │   │          │          │          │          │          │
+         &out OUT_TOG  &kp CAPS   &kp C_PREV    &kp C_NEXT   &none          &none     &none         &none   &none       &none    
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ CLEAR BT │          │          │ RESET    │BOOTLOADER│   │BOOTLOADER│ RESET    │          │          │          │
-            &bt BT_CLR   &none      &none   &sys_reset &bootloader    &bootloader  &sys_reset   &none     &none     &none
+        //│ BtDiscon0| BtDiscon1│ BtDiscon2│ RESET    │BOOTLOADER│   │BOOTLOADER│ RESET    │          │          │          │
+        &bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &sys_reset &bootloader    &bootloader  &sys_reset   &none     &none     &none
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                     &none        &none     &none         &none     &none    &none   
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
