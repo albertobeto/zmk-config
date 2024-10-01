@@ -10,9 +10,10 @@
 #include "cradio.dtsi"
 
 // Home row mods macro
-
 #define HRML(k1,k2) &ht LGUI k1  &ht LALT k2  
-#define HRMR(k1,k2) &ht RALT k1  &ht RGUI k2
+#define HRMR(k1,k2) &ht LALT k1  &ht LGUI k2
+
+#define MO_TOG(layer) &mo_tog layer layer   // Macro to apply momentary-layer-on-hold/toggle-layer-on-tap to a specific layer
 
 
 
@@ -22,6 +23,12 @@
     
     combos {
         compatible = "zmk,combos";
+        combo_undo {
+            timeout-ms = <50>;
+            key-positions = <20 21>;
+            bindings = <&kp LC(Z)>;
+            require-prior-idle-ms = <50>;
+        };
         combo_copy {
             timeout-ms = <50>;
             key-positions = <21 22>;
@@ -37,6 +44,7 @@
     };
 
     behaviors {
+        // for home row mods
         ht: hold_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -46,13 +54,20 @@
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
         };
-
+        // momentary or toggle switch
+        mo_tog: behavior_mo_tog {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&tog>;
+        };
 
         bspc_del: backspace_delete {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp BSPC>, <&kp DEL>;
-            mods = <(MOD_LSFT|MOD_RGUI|MOD_RALT)>;
+            mods = <(MOD_LSFT|MOD_LGUI|MOD_LALT)>;
         };
     
         space_enter: space_enter {
@@ -92,8 +107,8 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp SEMI>, <&kp SLASH>;
-            mods = <(MOD_RCTL)>;
-            keep-mods = <(MOD_RCTL)>;
+            mods = <(MOD_LCTL)>;
+            keep-mods = <(MOD_LCTL)>;
         };
         equal_semi_comment: equal_semi_comment {
             compatible = "zmk,behavior-mod-morph";
@@ -120,7 +135,7 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , '      │ . "      │ = ; RC(/)│
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_sqt  &dot_dqt  &equal_semi_comment
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                  &to 1     &bspc_del    &kp LSHIFT    &kp RCTRL  &space_enter_ctrl   &to 2  
+                             &mo_tog 1 1   &bspc_del    &kp LSHIFT    &kp LCTRL  &space_enter_ctrl   &mo_tog 2 2  
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -137,7 +152,7 @@
         //│    >     │  [       │  ]       │  &       │  \       │   │    `     │     4    │   5      │   6      │   7      │
            &kp GT    &kp LBKT  &kp RBKT     &kp AMPS    &kp BSLH         &kp GRAVE     &kp N4     &kp N5     &kp N6     &kp N7
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                   &to 2     &bspc_del   &kp LSHIFT    &kp RCTRL   &space_enter_ctrl    &to 0 
+                              &mo_tog 2 2   &bspc_del   &kp LSHIFT    &kp LCTRL   &space_enter_ctrl    &mo_tog 0 0 
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -154,7 +169,7 @@
         //│   F4     │   PgUp   │Play/Pause│  PgDwn   │ Vol down │   │ PRintScrn|  @       │  %       │  $       │ BrightDwn│
             &kp F4   &kp PG_UP   &kp C_PP  &kp PG_DN  &kp C_VOL_DN    &kp PSCRN   &kp AT  &kp PRCNT   &kp DLLR   &kp C_BRI_DN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                 &to 1     &bspc_del     &kp LSHIFT      &kp RCTRL     &space_enter_ctrl    &to 0 
+                            &mo_tog 1 1   &bspc_del     &kp LSHIFT      &kp LCTRL     &space_enter_ctrl    &mo_tog 0 0 
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
