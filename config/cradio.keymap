@@ -10,8 +10,8 @@
 #include "cradio.dtsi"
 
 // Home row mods macro
-#define HRML(k1,k2) &ht LGUI k1  &ht LALT k2  &ht LCTRL k3
-#define HRMR(k1,k2) &ht LCTRL k1 &ht LALT k2  &ht LGUI k3 
+#define HRML(k1,k2,k3) &ht LGUI k1  &ht LALT k2  &ht LCTRL k3
+#define HRMR(k1,k2,k3) &ht LCTRL k1 &ht LALT k2  &ht LGUI k3 
 
 #define MO_TOG(layer) &mo_tog layer layer   // Macro to apply momentary-layer-on-hold/toggle-layer-on-tap to a specific layer
 
