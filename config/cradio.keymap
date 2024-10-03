@@ -12,6 +12,7 @@
 // Home row mods macro
 #define HRML(k1,k2,k3) &ht LGUI k1  &ht LALT k2  &ht LCTRL k3
 #define HRMR(k1,k2,k3) &ht LCTRL k1 &ht LALT k2  &ht LGUI k3 
+#define HRMR2(k1,k2)  &ht LALT k1  &ht LGUI k2 
 
 #define MO_TOG(layer) &mo_tog layer layer   // Macro to apply momentary-layer-on-hold/toggle-layer-on-tap to a specific layer
 
@@ -170,7 +171,7 @@
             &kp F11     &kp HOME   &kp UP   &kp END   &kp C_VOL_UP     &lt 3 CARET  &mkp MB4  &kp ESC   &mkp MB5   &kp C_BRI_UP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  TAB     │  Left    │  Down    │  RIGHT   │ mute     │   | MousMid  │LeftClick │   #      │  :       │rightClick│
-            &kp TAB   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &mkp MCLK  &mkp LCLK  HRMR( HASH, COLON)   &mkp RCLK
+            &kp TAB   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &mkp MCLK  &mkp LCLK  HRMR2( HASH, COLON)   &mkp RCLK
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   F4     │   PgUp   │Play/Pause│  PgDwn   │ Vol down │   │ PRintScrn|  @       │  %       │  $       │ BrightDwn│
             &kp F4   &kp PG_UP   &kp C_PP  &kp PG_DN  &kp C_VOL_DN    &kp PSCRN   &kp AT  &kp PRCNT   &kp DLLR   &kp C_BRI_DN
