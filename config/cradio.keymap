@@ -10,8 +10,8 @@
 #include "cradio.dtsi"
 
 // Home row mods macro
-#define HRML(k1,k2) &ht LGUI k1  &ht LALT k2  
-#define HRMR(k1,k2) &ht LALT k1  &ht LGUI k2
+#define HRML(k1,k2) &ht LGUI k1  &ht LALT k2  &ht LCTRL k3
+#define HRMR(k1,k2) &ht LCTRL k1 &ht LALT k2  &ht LGUI k3 
 
 #define MO_TOG(layer) &mo_tog layer layer   // Macro to apply momentary-layer-on-hold/toggle-layer-on-tap to a specific layer
 
@@ -67,14 +67,20 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp BSPC>, <&kp DEL>;
-            mods = <(MOD_LSFT|MOD_LGUI|MOD_LALT)>;
+            mods = <(MOD_LCTL)>;
         };
     
+        space_shift_enter: space_shift_enter {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LC(ENTER)>, <&kp LS(ENTER)>;
+            mods = <(MOD_LALT)>;
+        };
         space_enter: space_enter {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp ENTER>, <&kp LC(ENTER)>;
-            mods = <(MOD_LGUI|MOD_LALT)>;
+            bindings = <&kp ENTER>, <&space_shift_enter>;
+            mods = <(MOD_LCTL)>;
         };
         space_enter_ctrl: space_enter_ctrl {
             compatible = "zmk,behavior-mod-morph";
@@ -130,7 +136,7 @@
             &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  S  Win  │  D   Alt │  F       │  G       │   │  H       │  J       │  K   alt │  L   win │   _  -   │
-            &kp A  HRML( S,         D)      &kp F      &kp G          &kp H     &kp J    HRMR(   K,         L)      &under_dash
+            &kp A  HRML( S,         D,        F)      &kp G          &kp H     HRMR( J,       K,         L)      &under_dash
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , '      │ . "      │ = ; RC(/)│
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_sqt  &dot_dqt  &equal_semi_comment
@@ -147,7 +153,7 @@
             &kp LT   &kp LBRC       &kp RBRC  &kp PLUS  &kp TILDE      &kp QMARK   &kp COMMA  &kp N8  &kp N9    &kp DOT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   !      │ 	 (      │  )       │  /       │   |      │   │   *      │   0      │  1       │   2      │  3       │
-            &kp EXCL    HRML( LPAR, RPAR)   &kp SLASH   &kp PIPE          &kp STAR   &kp N0   HRMR( N1,   N2)   &kp N3
+            &kp EXCL  HRML( LPAR,   RPAR,    SLASH)   &kp PIPE          &kp STAR   HRMR( N0,    N1,        N2)   &kp N3
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│    >     │  [       │  ]       │  &       │  \       │   │    `     │     4    │   5      │   6      │   7      │
            &kp GT    &kp LBKT  &kp RBKT     &kp AMPS    &kp BSLH         &kp GRAVE     &kp N4     &kp N5     &kp N6     &kp N7
