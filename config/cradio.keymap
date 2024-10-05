@@ -42,9 +42,21 @@
             bindings = <&kp LC(V)>;
             require-prior-idle-ms = <50>;
         };
+        combo_backspace {
+            timeout-ms = <50>;
+            key-positions = <12 13>;
+            bindings = <&kp BSPC>;
+            require-prior-idle-ms = <50>;
+        };
         combo_delete {
             timeout-ms = <50>;
             key-positions = <5 6>;
+            bindings = <&kp DEL>;
+            require-prior-idle-ms = <50>;
+        };
+        combo_delete_2 {
+            timeout-ms = <50>;
+            key-positions = <16 17>;
             bindings = <&kp DEL>;
             require-prior-idle-ms = <50>;
         };
@@ -63,7 +75,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <220>;
-            quick-tap-ms = <150>;
+            quick-tap-ms = <200>;
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
         };
@@ -74,6 +86,13 @@
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
             bindings = <&mo>, <&to>;
+        };
+
+        shift_caps: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LSHIFT>, <&kp CAPS>;
         };
 
         bspc_del: backspace_delete {
@@ -142,6 +161,18 @@
             mods = <(MOD_LSFT)>;
         };
         
+        vol_up_next: vol_up_next {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp C_VOL_UP>, <&kp C_NEXT>;
+            mods = <(MOD_LSFT)>;
+        };
+        vol_dwn_prev: vol_dwn_prev {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp C_VOL_DN>, <&kp C_PREV>;
+            mods = <(MOD_LSFT)>;
+        };
     };
 
 
@@ -153,13 +184,13 @@
         //│  Q       │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │  P       │
             &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  A       │  S  Win  │  D   Alt │  F       │  G       │   │  H       │  J       │  K   alt │  L   win │   _  -   │
-            HRML(A,        S,         D,        F)      &kp G          &kp H     HRMR( J,       K,         L,         ENTER)
+        //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │  ENTER   │
+          &ht LGUI A  &ht LALT S  &ht LCTRL D   &kp F      &kp G          &kp H     &kp J  &ht LCTRL K  &ht LALT L   &ht LGUI ENTER
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , '      │ . "      │ _  -     │
+        //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , '      │ . "      │ _  -  /  │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_sqt  &dot_dqt  &under_dash 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                 &kp LSHIFT   &kp BSPC  MO_TO(1)     MO_TO(2)   &kp SPACE   &kp LCTRL  
+                                 &to 0   &shift_caps  MO_TO(1)     MO_TO(2)   &kp SPACE   &kp LCTRL  
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -171,12 +202,12 @@
             &kp LT   &kp LBRC       &kp RBRC  &kp PLUS  &kp TILDE      &kp QMARK   &kp COMMA  &kp N8  &kp N9    &kp DOT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   !      │ 	 (      │  )       │  =       │   |      │   │   *      │   0      │  1       │   2      │  3       │
-            HRML(EXCL,   LPAR,   RPAR,    EQUAL)   &kp PIPE          &kp STAR   HRMR( N0,    N1,        N2,         N3)
+    &ht LGUI EXCL  &ht LALT LPAR  &ht LCTRL RPAR  &kp EQUAL  &kp PIPE   &kp STAR  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│    >     │  [       │  ]       │  &       │  \       │   │    `     │    4  $  │   5      │   6      │   7      │
            &kp GT    &kp LBKT  &kp RBKT     &kp AMPS    &kp BSLH         &kp GRAVE     &kp N4     &kp N5     &kp N6     &kp N7
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                              &kp LSHIFT   &kp BSPC     MO_TO(2)      MO_TO(0)   &kp SPACE    &kp LCTRL 
+                                        &trans  &trans   MO_TO(0)      MO_TO(2)   &trans    &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -184,16 +215,16 @@
         left_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│    F11   │  Home    │    UP    │  END     │ Vol up   │   │ ^ & UpLyr│ MousBtn4 │  ESC     │ MousBtn5 │ BrightUp │
-            &kp F11     &kp HOME   &kp UP   &kp END   &kp C_VOL_UP     &lt 3 CARET  &mkp MB4  &kp ESC   &mkp MB5   &kp C_BRI_UP
+        //│    F11   │  Home    │    UP    │  END     │ VolUpNext│   │ ^ & UpLyr│ MousBtn4 │  ESC     │ MousBtn5 │ BrightUp │
+            &kp F11     &kp HOME   &kp UP   &kp END   &vol_up_next     &lt 3 CARET  &mkp MB4  &kp ESC   &mkp MB5   &kp C_BRI_UP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  TAB     │  Left    │  Down    │  RIGHT   │ mute     │   | MousMid  │LeftClick │   =      │  ;  :    │rightClick│
-            &kp TAB   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &mkp MCLK  &mkp LCLK  HRMR2( EQUAL, SEMI)   &mkp RCLK
+        //│  TAB     │  Left    │  Down    │  RIGHT   │ mute     │   |RightMouse│LeftMouse │   ;      │     #    │     :    │
+            &kp TAB   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &mkp RCLK  &mkp LCLK  &ht LCTRL SEMI  &ht LALT HASH   &ht LGUI COLON
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│   F4     │   PgUp   │Play/Pause│  PgDwn   │ Vol down │   │ PRintScrn|  @       │  #       │  %       │ BrightDwn│
-            HRML( F4,    PG_UP,    C_PP,     PG_DN)  &kp C_VOL_DN    &kp PSCRN   HRMR( AT,   HASH,    PRCNT,    C_BRI_DN)
+        //│   F4     │   PgUp   │Play/Pause│  PgDwn   │VolDwnPrev│   │ PRintScrn|  @       │ MidMouse │  %       │ BrightDwn│
+            &kp F4  &kp PG_UP   &kp C_PP  &kp PG_DN  &vol_dwn_prev    &kp PSCRN   &kp AT   &mkp MCLK    &kp PRCNT    &kp C_BRI_DN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                            &kp LSHIFT   &kp BSPC     MO_TO(1)        MO_TO(0)   &kp SPACE    &kp LCTRL 
+                                    &trans   &trans     MO_TO(0)        MO_TO(1)   &trans    &trans 
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -204,8 +235,8 @@
         //│  BT0     │  Bt1     │     BT2  │  BT3     | CLEAR BT │   │KeepUpLaye│          │          │          │          │
       &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &bt BT_CLR     &trans     &none     &none    &none      &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│USB BLE TG│ CapsLock │ PrevSong │ NextSong │          │   │          │          │          │          │          │
-         &out OUT_TOG  &kp CAPS   &kp C_PREV    &kp C_NEXT   &none          &none     &none         &none   &none       &none    
+        //│USB BLE TG│          │          │          │          │   │          │          │          │          │          │
+         &out OUT_TOG  &none     &none      &none        &none          &none     &none         &none   &none       &none    
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ BtDiscon0| BtDiscon1│ BtDiscon2│ RESET    │BOOTLOADER│   │BOOTLOADER│ RESET    │          │          │          │
         &bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &sys_reset &bootloader    &bootloader  &sys_reset   &none     &none     &none
