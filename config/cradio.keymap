@@ -60,6 +60,12 @@
             bindings = <&kp DEL>;
             require-prior-idle-ms = <50>;
         };
+        combo_enter {
+            timeout-ms = <50>;
+            key-positions = <18 19>;
+            bindings = <&kp ENTER>;
+            require-prior-idle-ms = <50>;
+        };
         combo_slash {
             timeout-ms = <50>;
             key-positions = <28 29>;
