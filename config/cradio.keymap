@@ -9,19 +9,10 @@
 
 #include "cradio.dtsi"
 
-// Home row mods macro
-#define HRML(k1,k2,k3,k4) &ht LGUI k1  &ht LALT k2  &ht LCTRL k3 &ht LSHFT k4
-#define HRMR(k1,k2,k3,k4) &ht LSHFT k1 &ht LCTRL k2 &ht LALT k3  &ht LGUI k4 
-#define HRMR2(k1,k2)  &ht LSHFT k1  &ht LGUI k2 
-
 #define MO_TO(layer) &mo_to layer layer   // Macro to apply momentary-layer-on-hold/toggle-layer-on-tap to a specific layer
 
 
-
-
 / {
-    
-    
     combos {
         compatible = "zmk,combos";
         combo_undo {
@@ -84,14 +75,8 @@
             bindings = <MO_TO(1)>;
             require-prior-idle-ms = <50>;
         };
-        
-        combo_crossboard_test {
-            timeout-ms = <1000>;
-            key-positions = <14 15>;
-            bindings = <MO_TO(1)>;
-            require-prior-idle-ms = <50>;
-        };
     };
+
 
     behaviors {
         // for home row mods
@@ -104,7 +89,7 @@
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
         };
-        // momentary or toggle switch
+        // momentary or toggle layer switch
         mo_to: behavior_mo_to {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -120,31 +105,6 @@
             bindings = <&kp LSHIFT>, <&kp CAPS>;
         };
 
-        bspc_del: backspace_delete {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp BSPC>, <&kp DEL>;
-            mods = <(MOD_LCTL)>;
-        };
-    
-//        space_shift_enter: space_shift_enter {
- //           compatible = "zmk,behavior-mod-morph";
-  //          #binding-cells = <0>;
-   //         bindings = <&kp LC(ENTER)>, <&kp LS(ENTER)>;
-    //        mods = <(MOD_LALT)>;
-     //   };
-      //  space_enter: space_enter {
-       //     compatible = "zmk,behavior-mod-morph";
-        //    #binding-cells = <0>;
-         //   bindings = <&kp ENTER>, <&space_shift_enter>;
-          //  mods = <(MOD_LCTL)>;
-//        };
- //       space_enter_ctrl: space_enter_ctrl {
-  //          compatible = "zmk,behavior-mod-morph";
-   //         #binding-cells = <0>;
-    //        bindings = <&kp SPACE>, <&space_enter>;
-     //       mods = <(MOD_LSFT)>;
-      //  };
         space_delete: space_delete {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -153,36 +113,22 @@
         };
 
 
-        coma_sqt: comma_undescore {
+        coma_equal: coma_equal {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp SQT>;
+            bindings = <&kp COMMA>, <&kp EQUAL>;
             mods = <(MOD_LSFT)>;
         };
-        dot_dqt: dot_dqt {
+        dot_semi: dot_semi {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp DQT>;
+            bindings = <&kp DOT>, <&kp SEMI>;
             mods = <(MOD_LSFT)>;
         };
         under_dash: under_dash {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp UNDER>, <&kp MINUS>;
-            mods = <(MOD_LSFT)>;
-        };
-
-        semi_comment: semi_comment {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp SEMI>, <&kp SLASH>;
-            mods = <(MOD_LCTL)>;
-            keep-mods = <(MOD_LCTL)>;
-        };
-        equal_semi_comment: equal_semi_comment {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp EQUAL>, <&semi_comment>;
             mods = <(MOD_LSFT)>;
         };
         
@@ -209,13 +155,13 @@
         //│  Q       │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │  P       │
             &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │  ENTER   │
-          &ht LGUI A  &ht LALT S  &ht LCTRL D   &kp F      &kp G          &kp H     &kp J  &ht LCTRL K  &ht LALT L   &ht LGUI ENTER
+        //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │  _  -    │
+          &ht LGUI A  &ht LALT S  &ht LCTRL D   &kp F      &kp G          &kp H     &kp J  &ht LCTRL K  &ht LALT L   &ht LGUI &under_dash 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , '      │ . "      │ _  -  /  │
-            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_sqt  &dot_dqt  &under_dash 
+        //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , =      │ . ;      │ '  "  /  │
+            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_equal  &dot_semi      &kp SQT 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                 &to 0   &shift_caps  MO_TO(1)     MO_TO(2)   &space_delete   &kp LCTRL  
+                                 MO_TO(1)   &shift_caps  MO_TO(0)     MO_TO(2)   &space_delete   &kp BSPC  
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -223,14 +169,14 @@
         right_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  <       │  {       │	  }    │     +    │     ~    │   │   ?      │   ,      │    8     │   9      │    .     │
-            &kp LT   &kp LBRC       &kp RBRC  &kp PLUS  &kp TILDE      &kp QMARK   &kp COMMA  &kp N8  &kp N9    &kp DOT
+        //│  <       │  {       │	  }    │     +    │     ~    │   │   -      │   ,      │    8     │   9      │    .     │
+            &kp LT   &kp LBRC       &kp RBRC  &kp PLUS  &kp TILDE      &kp MINUS   &kp COMMA  &kp N8  &kp N9    &kp DOT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│   !      │ 	 (      │  )       │  =       │   |      │   │   *      │   0      │  1       │   2      │  3       │
-    &ht LGUI EXCL  &ht LALT LPAR  &ht LCTRL RPAR  &kp EQUAL  &kp PIPE   &kp STAR  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
+        //│   !      │ 	 (      │  )       │    ?     │   |      │   │   *      │   0      │  1       │   2      │  3       │
+    &ht LGUI EXCL  &ht LALT LPAR  &ht LCTRL RPAR  &kp QMARK  &kp PIPE   &kp STAR  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│    >     │  [       │  ]       │  &       │  \       │   │    `     │    4  $  │   5      │   6      │   7      │
-           &kp GT    &kp LBKT  &kp RBKT     &kp AMPS    &kp BSLH         &kp GRAVE     &kp N4     &kp N5     &kp N6     &kp N7
+        //│    >     │  [       │  ]       │  &       │  \       │   │    $     │    4     │   5      │   6      │   7      │
+           &kp GT    &kp LBKT  &kp RBKT     &kp AMPS    &kp BSLH         &kp DLLR     &kp N4     &kp N5     &kp N6     &kp N7
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                         &trans  &trans   MO_TO(0)      MO_TO(2)   &trans    &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -243,13 +189,13 @@
         //│    F11   │  Home    │    UP    │  END     │ VolUpPrev│   │ ^ & UpLyr│ MousBtn4 │  ESC     │ MousBtn5 │ BrightUp │
             &kp F11     &kp HOME   &kp UP   &kp END   &vol_up_prev     &lt 3 CARET  &mkp MB4  &kp ESC   &mkp MB5   &kp C_BRI_UP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  TAB     │  Left    │  Down    │  RIGHT   │ mute     │   |RightMouse│LeftMouse │   ;      │     #    │     :    │
-            &kp TAB   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &mkp RCLK  &mkp LCLK  &ht LCTRL SEMI  &ht LALT HASH   &ht LGUI COLON
+        //│  TAB     │  Left    │  Down    │  RIGHT   │ mute     │   |RightMouse│LeftMouse │    `     │     #    │     :    │
+            &kp TAB   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &mkp RCLK  &mkp LCLK  &ht LCTRL GRAVE  &ht LALT HASH   &ht LGUI COLON
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   F4     │   PgUp   │Play/Pause│  PgDwn   │VolDwnNext│   │ PRintScrn|  @       │ MidMouse │  %       │ BrightDwn│
             &kp F4  &kp PG_UP   &kp C_PP  &kp PG_DN  &vol_dwn_next    &kp PSCRN   &kp AT   &mkp MCLK    &kp PRCNT    &kp C_BRI_DN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                    &trans   &trans     MO_TO(0)        MO_TO(1)   &trans    &trans 
+                                    &trans   &trans     MO_TO(0)        MO_TO(2)   &trans    &trans 
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
