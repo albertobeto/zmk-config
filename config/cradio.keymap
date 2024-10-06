@@ -78,6 +78,12 @@
             bindings = <&kp SLASH>;
             require-prior-idle-ms = <50>;
         };
+        combo_third_layer {
+            timeout-ms = <50>;
+            key-positions = <32 33>;
+            bindings = <&kp U>;
+            require-prior-idle-ms = <50>;
+        };
     };
 
     behaviors {
