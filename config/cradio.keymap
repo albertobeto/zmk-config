@@ -48,6 +48,12 @@
             bindings = <&kp BSPC>;
             require-prior-idle-ms = <50>;
         };
+        combo_backspace_2 {
+            timeout-ms = <50>;
+            key-positions = <13 16>;
+            bindings = <&kp BSPC>;
+            require-prior-idle-ms = <50>;
+        };
         combo_delete {
             timeout-ms = <50>;
             key-positions = <5 6>;
@@ -126,10 +132,10 @@
     //        bindings = <&kp SPACE>, <&space_enter>;
      //       mods = <(MOD_LSFT)>;
       //  };
-        space_enter_ctrl: space_enter_ctrl {
+        space_delete: space_delete {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp SPACE>, <&kp ENTER>;
+            bindings = <&kp SPACE>, <&kp BSPC>;
             mods = <(MOD_LSFT)>;
         };
 
@@ -167,16 +173,16 @@
             mods = <(MOD_LSFT)>;
         };
         
-        vol_up_next: vol_up_next {
+        vol_up_prev: vol_up_prev {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp C_VOL_UP>, <&kp C_NEXT>;
+            bindings = <&kp C_VOL_UP>, <&kp C_PREV>;
             mods = <(MOD_LSFT)>;
         };
-        vol_dwn_prev: vol_dwn_prev {
+        vol_dwn_next: vol_dwn_next {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp C_VOL_DN>, <&kp C_PREV>;
+            bindings = <&kp C_VOL_DN>, <&kp C_NEXT>;
             mods = <(MOD_LSFT)>;
         };
     };
@@ -221,14 +227,14 @@
         left_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│    F11   │  Home    │    UP    │  END     │ VolUpNext│   │ ^ & UpLyr│ MousBtn4 │  ESC     │ MousBtn5 │ BrightUp │
-            &kp F11     &kp HOME   &kp UP   &kp END   &vol_up_next     &lt 3 CARET  &mkp MB4  &kp ESC   &mkp MB5   &kp C_BRI_UP
+        //│    F11   │  Home    │    UP    │  END     │ VolUpPrev│   │ ^ & UpLyr│ MousBtn4 │  ESC     │ MousBtn5 │ BrightUp │
+            &kp F11     &kp HOME   &kp UP   &kp END   &vol_up_prev     &lt 3 CARET  &mkp MB4  &kp ESC   &mkp MB5   &kp C_BRI_UP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  TAB     │  Left    │  Down    │  RIGHT   │ mute     │   |RightMouse│LeftMouse │   ;      │     #    │     :    │
             &kp TAB   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &mkp RCLK  &mkp LCLK  &ht LCTRL SEMI  &ht LALT HASH   &ht LGUI COLON
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│   F4     │   PgUp   │Play/Pause│  PgDwn   │VolDwnPrev│   │ PRintScrn|  @       │ MidMouse │  %       │ BrightDwn│
-            &kp F4  &kp PG_UP   &kp C_PP  &kp PG_DN  &vol_dwn_prev    &kp PSCRN   &kp AT   &mkp MCLK    &kp PRCNT    &kp C_BRI_DN
+        //│   F4     │   PgUp   │Play/Pause│  PgDwn   │VolDwnNext│   │ PRintScrn|  @       │ MidMouse │  %       │ BrightDwn│
+            &kp F4  &kp PG_UP   &kp C_PP  &kp PG_DN  &vol_dwn_next    &kp PSCRN   &kp AT   &mkp MCLK    &kp PRCNT    &kp C_BRI_DN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                     &trans   &trans     MO_TO(0)        MO_TO(1)   &trans    &trans 
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
