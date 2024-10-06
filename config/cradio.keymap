@@ -189,8 +189,8 @@
         //│    F11   │  Home    │    UP    │  END     │ VolUpPrev│   │ ^ & UpLyr│ MousBtn4 │  ESC     │ MousBtn5 │ BrightUp │
             &kp F11     &kp HOME   &kp UP   &kp END   &vol_up_prev     &lt 3 CARET  &mkp MB4  &kp ESC   &mkp MB5   &kp C_BRI_UP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  TAB     │  Left    │  Down    │  RIGHT   │ mute     │   |RightMouse│LeftMouse │    `     │     #    │     :    │
-            &kp TAB   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &mkp RCLK  &mkp LCLK  &ht LCTRL GRAVE  &ht LALT HASH   &ht LGUI COLON
+        //│  TAB     │  Left    │  Down    │  RIGHT   │ mute     │   |RightMouse│LeftMouse │    #     │    :     │     `    │
+            &kp TAB   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &mkp RCLK  &mkp LCLK  &ht LCTRL HASH  &ht LALT COLON   &ht LGUI GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   F4     │   PgUp   │Play/Pause│  PgDwn   │VolDwnNext│   │ PRintScrn|  @       │ MidMouse │  %       │ BrightDwn│
             &kp F4  &kp PG_UP   &kp C_PP  &kp PG_DN  &vol_dwn_next    &kp PSCRN   &kp AT   &mkp MCLK    &kp PRCNT    &kp C_BRI_DN
