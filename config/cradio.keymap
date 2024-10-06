@@ -84,6 +84,13 @@
             bindings = <&kp U>;
             require-prior-idle-ms = <50>;
         };
+        
+        combo_crossboard_test {
+            timeout-ms = <1000>;
+            key-positions = <14 15>;
+            bindings = <&kp BSPC>;
+            require-prior-idle-ms = <50>;
+        };
     };
 
     behaviors {
