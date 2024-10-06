@@ -81,14 +81,14 @@
         combo_third_layer {
             timeout-ms = <50>;
             key-positions = <32 33>;
-            bindings = <&kp U>;
+            bindings = <MO_TO(1)>;
             require-prior-idle-ms = <50>;
         };
         
         combo_crossboard_test {
             timeout-ms = <1000>;
             key-positions = <14 15>;
-            bindings = <&kp BSPC>;
+            bindings = <MO_TO(1)>;
             require-prior-idle-ms = <50>;
         };
     };
@@ -215,7 +215,7 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , '      │ . "      │ _  -  /  │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_sqt  &dot_dqt  &under_dash 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                 &to 0   &shift_caps  MO_TO(1)     MO_TO(2)   &kp SPACE   &kp LCTRL  
+                                 &to 0   &shift_caps  MO_TO(1)     MO_TO(2)   &space_delete   &kp LCTRL  
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
