@@ -70,7 +70,7 @@
             require-prior-idle-ms = <50>;
         };
         combo_third_layer {
-            timeout-ms = <50>;
+            timeout-ms = <100>;
             key-positions = <32 33>;
             bindings = <MO_TO(1)>;
             require-prior-idle-ms = <50>;
