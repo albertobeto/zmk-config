@@ -58,13 +58,13 @@
             require-prior-idle-ms = <50>;
         };
         combo_enter {
-            timeout-ms = <50>;
+            timeout-ms = <100>;
             key-positions = <18 19>;
             bindings = <&kp ENTER>;
             require-prior-idle-ms = <50>;
         };
         combo_slash {
-            timeout-ms = <50>;
+            timeout-ms = <100>;
             key-positions = <28 29>;
             bindings = <&kp SLASH>;
             require-prior-idle-ms = <50>;
@@ -104,14 +104,6 @@
             tapping-term-ms = <200>;
             bindings = <&kp LSHIFT>, <&kp CAPS>;
         };
-
-        space_delete: space_delete {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp SPACE>, <&kp BSPC>;
-            mods = <(MOD_LSFT)>;
-        };
-
 
         coma_equal: coma_equal {
             compatible = "zmk,behavior-mod-morph";
@@ -161,7 +153,7 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , =      │ . ;      │ _  -  /  │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_equal  &dot_semi    &under_dash 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                 MO_TO(1)   &shift_caps  MO_TO(0)     MO_TO(2)   &space_delete   &kp BSPC  
+                                 MO_TO(1)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   &kp BSPC  
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -169,14 +161,14 @@
         right_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  <       │  {       │	  }    │     +    │     ~    │   │   -      │   ,      │    8     │   9      │    .     │
-            &kp LT   &kp LBRC       &kp RBRC  &kp PLUS  &kp TILDE      &kp MINUS   &kp COMMA  &kp N8  &kp N9    &kp DOT
+        //│  <       │  +       │	  {    │     }    │     ~    │   │   -      │   ,      │    8     │   9      │    .     │
+            &kp LT   &kp PLUS      &kp LBRC   &kp RBRC  &kp TILDE      &kp MINUS   &kp COMMA  &kp N8  &kp N9    &kp DOT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│   !      │ 	 (      │  )       │    ?     │   |      │   │   *      │   0      │  1       │   2      │  3       │
-    &ht LGUI EXCL  &ht LALT LPAR  &ht LCTRL RPAR  &kp QMARK  &kp PIPE   &kp STAR  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
+        //│   ?      │ 	 !      │  (       │    )     │   |      │   │   *      │   0      │  1       │   2      │  3       │
+    &ht LGUI QMARK  &ht LALT EXCL  &ht LCTRL LPAR  &kp RPAR  &kp PIPE   &kp STAR  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│    >     │  [       │  ]       │  &       │  \       │   │    $     │    4     │   5      │   6      │   7      │
-           &kp GT    &kp LBKT  &kp RBKT     &kp AMPS    &kp BSLH         &kp DLLR     &kp N4     &kp N5     &kp N6     &kp N7
+        //│    >     │  &       │  [       │  ]       │  \       │   │    $     │    4     │   5      │   6      │   7      │
+           &kp GT    &kp AMPS    &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR     &kp N4     &kp N5     &kp N6     &kp N7
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                         &trans  &trans   &trans      &trans   &trans    &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
