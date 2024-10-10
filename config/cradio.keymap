@@ -61,13 +61,13 @@
             timeout-ms = <100>;
             key-positions = <18 19>;
             bindings = <&kp ENTER>;
-            //require-prior-idle-ms = <50>;
+            require-prior-idle-ms = <50>;
         };
         combo_slash {
             timeout-ms = <100>;
             key-positions = <28 29>;
             bindings = <&kp SLASH>;
-            //require-prior-idle-ms = <50>;
+            require-prior-idle-ms = <50>;
         };
         combo_third_layer {
             timeout-ms = <100>;
