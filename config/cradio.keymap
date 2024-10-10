@@ -61,19 +61,19 @@
             timeout-ms = <100>;
             key-positions = <18 19>;
             bindings = <&kp ENTER>;
-            require-prior-idle-ms = <50>;
+            //require-prior-idle-ms = <50>;
         };
         combo_slash {
             timeout-ms = <100>;
             key-positions = <28 29>;
             bindings = <&kp SLASH>;
-            require-prior-idle-ms = <50>;
+            //require-prior-idle-ms = <50>;
         };
         combo_third_layer {
             timeout-ms = <100>;
             key-positions = <32 33>;
             bindings = <MO_TO(1)>;
-            require-prior-idle-ms = <50>;
+            //require-prior-idle-ms = <50>;
         };
     };
 
@@ -164,8 +164,8 @@
         //│  <       │  +       │	  {    │     }    │     ~    │   │   -      │   ,      │    8     │   9      │    .     │
             &kp LT   &kp PLUS      &kp LBRC   &kp RBRC  &kp TILDE      &kp MINUS   &kp COMMA  &kp N8  &kp N9    &kp DOT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│   ?      │ 	 !      │  (       │    )     │   |      │   │   *      │   0      │  1       │   2      │  3       │
-    &ht LGUI QMARK  &ht LALT EXCL  &ht LCTRL LPAR  &kp RPAR  &kp PIPE   &kp STAR  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
+        //│   :      │ 	 !      │  (       │    )     │   |      │   │   *      │   0      │  1       │   2      │  3       │
+    &ht LGUI COLON  &ht LALT EXCL  &ht LCTRL LPAR  &kp RPAR  &kp PIPE   &kp STAR  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│    >     │  &       │  [       │  ]       │  \       │   │    $     │    4     │   5      │   6      │   7      │
            &kp GT    &kp AMPS    &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR     &kp N4     &kp N5     &kp N6     &kp N7
@@ -181,8 +181,8 @@
         //│    F11   │  Home    │    UP    │  END     │ VolUpPrev│   │ ^ & UpLyr│ MousBtn4 │  ESC     │ MousBtn5 │ BrightUp │
             &kp F11     &kp HOME   &kp UP   &kp END   &vol_up_prev     &lt 3 CARET  &mkp MB4  &kp ESC   &mkp MB5   &kp C_BRI_UP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  TAB     │  Left    │  Down    │  RIGHT   │ mute     │   | MidMouse │LeftMouse │    #     │    :     │     `    │
-            &kp TAB   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &mkp MCLK  &mkp LCLK  &ht LCTRL HASH  &ht LALT COLON   &ht LGUI GRAVE
+        //│  TAB     │  Left    │  Down    │  RIGHT   │ mute     │   | MidMouse │LeftMouse │    ESC   │    #     │     `    │
+            &kp TAB   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &mkp MCLK  &mkp LCLK  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   F4     │   PgUp   │Play/Pause│  PgDwn   │VolDwnNext│   │ PRintScrn|  @       │RightMouse│  %       │ BrightDwn│
             &kp F4  &kp PG_UP   &kp C_PP  &kp PG_DN  &vol_dwn_next    &kp PSCRN   &kp AT   &mkp RCLK    &kp PRCNT    &kp C_BRI_DN
@@ -210,3 +210,5 @@
         };
     };
 };
+
+
