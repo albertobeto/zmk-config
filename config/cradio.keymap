@@ -27,10 +27,28 @@
             bindings = <&kp LC(C)>;
             require-prior-idle-ms = <50>;
         };
+        combo_copy2 {
+            timeout-ms = <50>;
+            key-positions = <15 16>;
+            bindings = <&kp LC(C)>;
+            require-prior-idle-ms = <50>;
+        };
         combo_paste {
             timeout-ms = <50>;
             key-positions = <22 23>;
             bindings = <&kp LC(V)>;
+            require-prior-idle-ms = <50>;
+        };
+        combo_paste2 {
+            timeout-ms = <50>;
+            key-positions = <25 26>;
+            bindings = <&kp LC(V)>;
+            require-prior-idle-ms = <50>;
+        };
+        combo_cut {
+            timeout-ms = <50>;
+            key-positions = <23 24>;
+            bindings = <&kp LC(X)>;
             require-prior-idle-ms = <50>;
         };
         combo_backspace {
@@ -47,7 +65,7 @@
         };
         combo_delete {
             timeout-ms = <50>;
-            key-positions = <5 6>;
+            key-positions = <16 17>;
             bindings = <&kp DEL>;
             require-prior-idle-ms = <50>;
         };
@@ -58,6 +76,12 @@
             require-prior-idle-ms = <50>;
         };
         combo_enter {
+            timeout-ms = <100>;
+            key-positions = <17 18>;
+            bindings = <&kp ENTER>;
+            require-prior-idle-ms = <50>;
+        };
+        combo_enter2 {
             timeout-ms = <100>;
             key-positions = <18 19>;
             bindings = <&kp ENTER>;
@@ -170,7 +194,7 @@
         //│    >     │  &       │  [       │  ]       │  \       │   │    $     │    4     │   5      │   6      │   7      │
            &kp GT    &kp AMPS    &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR     &kp N4     &kp N5     &kp N6     &kp N7
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                        &trans  &trans   &trans      &trans   &trans    &trans
+                                 MO_TO(1)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   &kp BSPC  
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -187,7 +211,7 @@
         //│   F4     │   PgUp   │Play/Pause│  PgDwn   │VolDwnNext│   │ PRintScrn|  @       │RightMouse│  %       │ BrightDwn│
             &kp F4  &kp PG_UP   &kp C_PP  &kp PG_DN  &vol_dwn_next    &kp PSCRN   &kp AT   &mkp RCLK    &kp PRCNT    &kp C_BRI_DN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                    &trans   &trans     &trans        &trans   &trans    &trans 
+                                 MO_TO(1)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   &kp BSPC  
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
