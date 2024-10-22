@@ -87,10 +87,28 @@
             bindings = <&kp ENTER>;
             require-prior-idle-ms = <50>;
         };
+        combo_shift_enter {
+            timeout-ms = <100>;
+            key-positions = <17 18 31>;
+            bindings = <&kp LS(ENTER)>;
+            require-prior-idle-ms = <50>;
+        };
+        combo_shift_enter2 {
+            timeout-ms = <100>;
+            key-positions = <18 19 31>;
+            bindings = <&kp LS(ENTER)>;
+            require-prior-idle-ms = <50>;
+        };
         combo_slash {
             timeout-ms = <100>;
             key-positions = <28 29>;
             bindings = <&kp SLASH>;
+            require-prior-idle-ms = <50>;
+        };
+        combo_question {
+            timeout-ms = <100>;
+            key-positions = <28 29 31>;
+            bindings = <&kp LS(SLASH)>;
             require-prior-idle-ms = <50>;
         };
         combo_third_layer {
