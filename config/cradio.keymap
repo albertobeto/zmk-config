@@ -143,7 +143,7 @@
         shift_caps: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&kp LSHIFT>, <&kp CAPS>;
         };
 
@@ -226,8 +226,8 @@
         //│  TAB     │  Left    │  Down    │  RIGHT   │ mute     │   | MidMouse │LeftMouse │    ESC   │    #     │     `    │
             &kp TAB   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &mkp MCLK  &mkp LCLK  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│   F4     │   PgUp   │Play/Pause│  PgDwn   │VolDwnNext│   │ PRintScrn|  @       │RightMouse│  %       │ BrightDwn│
-            &kp F4  &kp PG_UP   &kp C_PP  &kp PG_DN  &vol_dwn_next    &kp PSCRN   &kp AT   &mkp RCLK    &kp PRCNT    &kp C_BRI_DN
+        //│   F4     │   PgUp   │Play/Pause│  PgDwn   │VolDwnNext│   │ PRintScrn│RightMouse│   @      |  %       │ BrightDwn│
+            &kp F4  &kp PG_UP   &kp C_PP  &kp PG_DN  &vol_dwn_next    &kp PSCRN   &mkp RCLK   &kp AT   &kp PRCNT    &kp C_BRI_DN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                             &mo_to 5 1    &shift_caps  &mo_to 4 0      MO_TO(2)   &kp SPACE   &kp BSPC  
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -263,7 +263,7 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , =      │ . ;      │ _  -  /  │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_equal  &dot_semi    &under_dash 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                    &none        &none     &none         &none     &none    &none   
+                                 MO_TO(1)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   &kp BSPC  
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -280,7 +280,7 @@
         //│    >     │  &       │  [       │  ]       │  \       │   │    $     │    4     │   5      │   6      │   7      │
            &kp GT    &kp AMPS    &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR     &kp N4     &kp N5     &kp N6     &kp N7
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                    &none        &none     &none         &none     &none    &none   
+                                 MO_TO(1)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   &kp BSPC  
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
