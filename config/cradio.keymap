@@ -143,7 +143,7 @@
         shift_caps: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <300>;
+            tapping-term-ms = <400>;
             bindings = <&kp LSHIFT>, <&kp CAPS>;
         };
 
