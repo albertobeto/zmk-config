@@ -7,8 +7,6 @@
 #include <dt-bindings/zmk/mouse.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#include "cradio.dtsi"
-
 #define MO_TO(layer) &mo_to layer layer   // Macro to apply momentary-layer-on-hold/toggle-layer-on-tap to a specific layer
 
 
