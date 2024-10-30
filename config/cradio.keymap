@@ -177,6 +177,12 @@
             bindings = <&kp UNDER>, <&kp MINUS>;
             mods = <(MOD_LSFT)>;
         };
+        amps_equal: amps_equal {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp AMPS>, <&kp EQUAL>;
+            mods = <(MOD_LSFT)>;
+        };
         
         vol_up_prev: vol_up_prev {
             compatible = "zmk,behavior-mod-morph";
@@ -221,8 +227,8 @@
         //│   :      │ 	 !      │  (       │    )     │   |      │   │   *      │   0      │  1       │   2      │  3       │
     &ht LGUI COLON  &ht LALT EXCL  &ht LCTRL LPAR  &kp RPAR  &kp PIPE   &kp STAR  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│    >     │  &       │  [       │  ]       │  \       │   │    $     │    4     │   5      │   6      │   7      │
-           &kp GT    &kp AMPS    &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR     &kp N4     &kp N5     &kp N6     &kp N7
+        //│    >     │  &  =    │  [       │  ]       │  \       │   │    $     │    4     │   5      │   6      │   7      │
+           &kp GT    &amps_equal  &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR     &kp N4     &kp N5     &kp N6     &kp N7
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                MO_TO(1)   &shift_caps  &mo_to 4 0     MO_TO(2)   &kp SPACE   &kp BSPC         &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
