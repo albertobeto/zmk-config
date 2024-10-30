@@ -71,6 +71,11 @@
             bindings = <&kp BSPC>;
             require-prior-idle-ms = <50>;
         };
+        combo_backspace_3 {
+            timeout-ms = <50>;
+            key-positions = <13 14>;
+            bindings = <&kp BSPC>;
+        };
         combo_delete {
             timeout-ms = <50>;
             key-positions = <16 17>;
@@ -122,8 +127,7 @@
         combo_third_layer {
             timeout-ms = <100>;
             key-positions = <32 33>;
-            bindings = <MO_TO(1)>;
-            //require-prior-idle-ms = <50>;
+            bindings = <&mo_to 5 1>;
         };
     };
 
@@ -173,6 +177,12 @@
             bindings = <&kp UNDER>, <&kp MINUS>;
             mods = <(MOD_LSFT)>;
         };
+        amps_equal: amps_equal {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp AMPS>, <&kp EQUAL>;
+            mods = <(MOD_LSFT)>;
+        };
         
         vol_up_prev: vol_up_prev {
             compatible = "zmk,behavior-mod-morph";
@@ -187,7 +197,6 @@
             mods = <(MOD_LSFT)>;
         };
     };
-
 
     keymap {
         compatible = "zmk,keymap";
@@ -217,8 +226,8 @@
         //│   :      │ 	 !      │  (       │    )     │   |      │   │   *      │   0      │  1       │   2      │  3       │
     &ht LGUI COLON  &ht LALT EXCL  &ht LCTRL LPAR  &kp RPAR  &kp PIPE   &kp STAR  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│    >     │  &       │  [       │  ]       │  \       │   │    $     │    4     │   5      │   6      │   7      │
-           &kp GT    &kp AMPS    &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR     &kp N4     &kp N5     &kp N6     &kp N7
+        //│    >     │  &  =    │  [       │  ]       │  \       │   │    $     │    4     │   5      │   6      │   7      │
+           &kp GT    &amps_equal  &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR     &kp N4     &kp N5     &kp N6     &kp N7
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                MO_TO(1)   &shift_caps  &mo_to 4 0     MO_TO(2)   &kp SPACE   &kp BSPC         &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -228,14 +237,14 @@
         left_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│    F11   │  Home    │    UP    │  END     │ VolUpPrev│   │ ^ & UpLyr│ MousBtn4 │  ESC     │ MousBtn5 │ BrightUp │
-            &kp F11     &kp HOME   &kp UP   &kp END   &vol_up_prev     &lt 3 CARET  &mkp MB4  &kp ESC   &mkp MB5   &kp C_BRI_UP
+        //│    F11   │  Home    │    UP    │  END     │ VolUpPrev│   │ ^ & UpLyr│ MousBtn4 │ MousBtn5 │ ScrollUp │ BrightUp │
+            &kp F11     &kp HOME   &kp UP   &kp END   &vol_up_prev     &lt 3 CARET  &mkp MB4  &mkp MB5  &kp LS(C_BRI_UP)  &kp C_BRI_UP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  TAB     │  Left    │  Down    │  RIGHT   │ mute     │   | MidMouse │LeftMouse │    ESC   │    #     │     `    │
-            &kp TAB   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &mkp MCLK  &mkp LCLK  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
+            &ht TAB   &ht LEFT   &ht DOWN   &kp RIGHT  &kp C_MUTE    &mkp MCLK  &mkp LCLK  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│   F4     │   PgUp   │Play/Pause│  PgDwn   │VolDwnNext│   │ PRintScrn│RightMouse│   @      |  ~       │ BrightDwn│
-            &kp F4  &kp PG_UP   &kp C_PP  &kp PG_DN  &vol_dwn_next    &kp PSCRN   &mkp RCLK   &kp AT   &kp TILDE   &kp C_BRI_DN
+        //│   F4     │   PgUp   │Play/Pause│  PgDwn   │VolDwnNext│   │ PRintScrn│RightMouse│   @      | ScrollDwn│ BrightDwn│
+            &kp F4  &kp PG_UP   &kp C_PP  &kp PG_DN  &vol_dwn_next    &kp PSCRN   &mkp RCLK   &kp AT   &kp LS(C_BRI_DN)   &kp C_BRI_DN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                             &mo_to 5 1    &shift_caps  &mo_to 4 0      MO_TO(2)   &kp SPACE   &kp BSPC         &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -271,6 +280,7 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , =      │ . ;      │ _  -  /  │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_equal  &dot_semi    &under_dash 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+        // ********************* IF YOU UPDATE THE KEYMAP, DON'T CHANGE THE THUMBS. ************************
                                  MO_TO(1)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   &kp BSPC  
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
@@ -279,8 +289,8 @@
         copy_right_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  <       │  +       │	  {    │     }    │     ~    │   │   -      │   ,      │    8     │   9      │    .     │
-            &kp LT   &kp PLUS      &kp LBRC   &kp RBRC  &kp TILDE      &kp MINUS   &kp COMMA  &kp N8  &kp N9    &kp DOT
+        //│  <       │  +       │	  {    │     }    │     %    │   │   -      │   ,      │    8     │   9      │    .     │
+            &kp LT   &kp PLUS      &kp LBRC   &kp RBRC  &kp PRCNT      &kp MINUS   &kp COMMA  &kp N8  &kp N9    &kp DOT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   :      │ 	 !      │  (       │    )     │   |      │   │   *      │   0      │  1       │   2      │  3       │
     &ht LGUI COLON  &ht LALT EXCL  &ht LCTRL LPAR  &kp RPAR  &kp PIPE   &kp STAR  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
@@ -288,9 +298,11 @@
         //│    >     │  &       │  [       │  ]       │  \       │   │    $     │    4     │   5      │   6      │   7      │
            &kp GT    &kp AMPS    &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR     &kp N4     &kp N5     &kp N6     &kp N7
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+        // ********************* IF YOU UPDATE THE KEYMAP, DON'T CHANGE THE THUMBS. ************************
                                  MO_TO(1)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   &kp BSPC  
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
     };
 };
+
