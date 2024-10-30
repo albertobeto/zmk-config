@@ -241,7 +241,7 @@
             &kp F11     &kp HOME   &kp UP   &kp END   &vol_up_prev     &lt 3 CARET  &mkp MB4  &mkp MB5  &kp N9  &kp C_BRI_UP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  TAB     │  Left    │  Down    │  RIGHT   │ mute     │   | MidMouse │LeftMouse │    ESC   │    #     │     `    │
-            &kp TAB   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &mkp MCLK  &mkp LCLK  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
+            &ht TAB   &ht LEFT   &ht DOWN   &kp RIGHT  &kp C_MUTE    &mkp MCLK  &mkp LCLK  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   F4     │   PgUp   │Play/Pause│  PgDwn   │VolDwnNext│   │ PRintScrn│RightMouse│   @      | ScrollDwn│ BrightDwn│
             &kp F4  &kp PG_UP   &kp C_PP  &kp PG_DN  &vol_dwn_next    &kp PSCRN   &mkp RCLK   &kp AT   &kp N8   &kp C_BRI_DN
