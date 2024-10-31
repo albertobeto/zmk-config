@@ -129,6 +129,11 @@
             key-positions = <32 33>;
             bindings = <&mo_to 5 1>;
         };
+        combo_reset_left {
+            timeout-ms = <100>;
+            key-positions = <0 1 2 3>;
+            bindings = <&sys_rese>;
+        };
     };
 
 
@@ -232,8 +237,8 @@
         //│   :      │ 	 !      │  (       │    )     │   |      │   │   *  Q   │   0      │  1       │   2      │  3       │
     &ht LGUI COLON  &ht LALT EXCL  &ht LCTRL LPAR  &kp RPAR  &kp PIPE   &start_q  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│    >     │  &  =    │  [       │  ]       │  \       │   │    $     │    4     │   ,      │   .      │   5      │
-           &kp GT    &amps_equal  &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR   &kp N4   &kp COMMA  &kp DOT     &kp N5
+        //│    >     │  &  =    │  [       │  ]       │  \       │   │    $     │    4     │   , =    │   . ;    │   5      │
+           &kp GT    &amps_equal  &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR   &kp N4   &coma_equal  &dot_semi   &kp N5
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                MO_TO(1)   &shift_caps  &mo_to 4 0     MO_TO(2)   &kp SPACE   &kp BSPC         &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -301,8 +306,8 @@
         //│   :      │ 	 !      │  (       │    )     │   |      │   │   *  Q   │   0      │  1       │   2      │  3       │
     &ht LGUI COLON  &ht LALT EXCL  &ht LCTRL LPAR  &kp RPAR  &kp PIPE   &start_q  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│    >     │  &  =    │  [       │  ]       │  \       │   │    $     │    4     │   ,      │   .      │   5      │
-           &kp GT    &amps_equal  &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR   &kp N4   &kp COMMA  &kp DOT     &kp N5
+        //│    >     │  &  =    │  [       │  ]       │  \       │   │    $     │    4     │   , =    │   . ;    │   5      │
+           &kp GT    &amps_equal  &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR   &kp N4   &coma_equal  &dot_semi   &kp N5
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         // ********************* IF YOU UPDATE THE KEYMAP, DON'T CHANGE THE THUMBS. ************************
                                  MO_TO(1)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   &kp BSPC  
