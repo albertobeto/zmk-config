@@ -125,7 +125,7 @@
             require-prior-idle-ms = <50>;
         };
         combo_third_layer {
-            timeout-ms = <100>;
+            timeout-ms = <1000>;
             key-positions = <32 33>;
             bindings = <&mo_to 5 1>;
         };
@@ -138,8 +138,8 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <200>;
+            tapping-term-ms = <270>;
+            quick-tap-ms = <250>;
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
         };
@@ -183,6 +183,12 @@
             bindings = <&kp AMPS>, <&kp EQUAL>;
             mods = <(MOD_LSFT)>;
         };
+        start_q: start_q {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp STAR>, <&kp LS(Q)>;
+            mods = <(MOD_LSFT)>;
+        };
 
         vol_up_prev: vol_up_prev {
             compatible = "zmk,behavior-mod-morph";
@@ -220,14 +226,14 @@
         right_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  <       │  +       │	  {    │     }    │     %    │   │   -      │   ,      │    8     │   9      │    .     │
-            &kp LT   &kp PLUS      &kp LBRC   &kp RBRC  &kp PRCNT      &kp MINUS   &kp COMMA  &kp N8  &kp N9    &kp DOT
+        //│  <       │  +       │	  {    │     }    │     %    │   │   -      │   6      │    7     │   8      │    9     │
+            &kp LT   &kp PLUS      &kp LBRC   &kp RBRC  &kp PRCNT      &kp MINUS   &kp N6    &kp N7      &kp N8    &kp N9   
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│   :      │ 	 !      │  (       │    )     │   |      │   │   *      │   0      │  1       │   2      │  3       │
-    &ht LGUI COLON  &ht LALT EXCL  &ht LCTRL LPAR  &kp RPAR  &kp PIPE   &kp STAR  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
+        //│   :      │ 	 !      │  (       │    )     │   |      │   │   *  Q   │   0      │  1       │   2      │  3       │
+    &ht LGUI COLON  &ht LALT EXCL  &ht LCTRL LPAR  &kp RPAR  &kp PIPE   &start_q  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│    >     │  &  =    │  [       │  ]       │  \       │   │    $     │    4     │   5      │   6      │   7      │
-           &kp GT    &amps_equal  &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR     &kp N4     &kp N5     &kp N6     &kp N7
+        //│    >     │  &  =    │  [       │  ]       │  \       │   │    $     │    4     │   ,      │   .      │   5      │
+           &kp GT    &amps_equal  &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR   &kp N4   &kp COMMA  &kp DOT     &kp N5
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                MO_TO(1)   &shift_caps  &mo_to 4 0     MO_TO(2)   &kp SPACE   &kp BSPC         &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -238,13 +244,13 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│    F11   │  Home    │    UP    │  END     │ VolUpPrev│   │ ^ & UpLyr│ MousBtn4 │ MousBtn5 │ ScrollUp │ BrightUp │
-            &kp F11     &kp HOME   &kp UP   &kp END   &vol_up_prev     &lt 3 CARET  &mkp MB4  &mkp MB5  &kp LS(C_BRI_UP)  &kp C_BRI_UP
+            &kp F11     &kp HOME   &kp UP   &kp END   &vol_up_prev     &lt 3 CARET  &mkp MB4  &mkp MB5  &kp LA(C_BRI_UP)  &kp C_BRI_UP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  TAB     │  Left    │  Down    │  RIGHT   │ mute     │   | MidMouse │LeftMouse │    ESC   │    #     │     `    │
+        //│  TAB     │  Left    │  Down    │  RIGHT   │ mute     │   | MidMouse │LeftMouse │    ESC   │    #     │   `  ~   │
 &ht LGUI TAB   &ht LALT LEFT   &ht LCTRL DOWN   &kp RIGHT  &kp C_MUTE    &mkp MCLK  &mkp LCLK  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   F4     │   PgUp   │Play/Pause│  PgDwn   │VolDwnNext│   │ PRintScrn│RightMouse│   @      | ScrollDwn│ BrightDwn│
-            &kp F4  &kp PG_UP   &kp C_PP  &kp PG_DN  &vol_dwn_next    &kp PSCRN   &mkp RCLK   &kp AT   &kp LS(C_BRI_DN)   &kp C_BRI_DN
+            &kp F4  &kp PG_UP   &kp C_PP  &kp PG_DN  &vol_dwn_next    &kp PSCRN   &mkp RCLK   &kp AT   &kp LA(C_BRI_DN)   &kp C_BRI_DN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                             &mo_to 5 1    &shift_caps  &mo_to 4 0      MO_TO(2)   &kp SPACE   &kp BSPC         &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -289,14 +295,14 @@
         copy_right_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  <       │  +       │	  {    │     }    │     %    │   │   -      │   ,      │    8     │   9      │    .     │
-            &kp LT   &kp PLUS      &kp LBRC   &kp RBRC  &kp PRCNT      &kp MINUS   &kp COMMA  &kp N8  &kp N9    &kp DOT
+        //│  <       │  +       │	  {    │     }    │     %    │   │   -      │   6      │    7     │   8      │    9     │
+            &kp LT   &kp PLUS      &kp LBRC   &kp RBRC  &kp PRCNT      &kp MINUS   &kp N6    &kp N7      &kp N8    &kp N9   
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│   :      │ 	 !      │  (       │    )     │   |      │   │   *      │   0      │  1       │   2      │  3       │
-    &ht LGUI COLON  &ht LALT EXCL  &ht LCTRL LPAR  &kp RPAR  &kp PIPE   &kp STAR  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
+        //│   :      │ 	 !      │  (       │    )     │   |      │   │   *  Q   │   0      │  1       │   2      │  3       │
+    &ht LGUI COLON  &ht LALT EXCL  &ht LCTRL LPAR  &kp RPAR  &kp PIPE   &start_q  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│    >     │  &       │  [       │  ]       │  \       │   │    $     │    4     │   5      │   6      │   7      │
-           &kp GT    &amps_equal  &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR     &kp N4     &kp N5     &kp N6     &kp N7
+        //│    >     │  &  =    │  [       │  ]       │  \       │   │    $     │    4     │   ,      │   .      │   5      │
+           &kp GT    &amps_equal  &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR   &kp N4   &kp COMMA  &kp DOT     &kp N5
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         // ********************* IF YOU UPDATE THE KEYMAP, DON'T CHANGE THE THUMBS. ************************
                                  MO_TO(1)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   &kp BSPC  
