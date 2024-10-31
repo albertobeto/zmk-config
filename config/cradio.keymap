@@ -132,7 +132,7 @@
         combo_reset_left {
             timeout-ms = <100>;
             key-positions = <0 1 2 3>;
-            bindings = <&sys_rese>;
+            bindings = <&sys_reset>;
         };
     };
 
