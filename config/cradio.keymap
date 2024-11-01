@@ -219,6 +219,12 @@
             bindings = <&kp F4>, <&kp F11>;
             mods = <(MOD_LSFT)>;
         };
+        brightness: brightness {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp C_BRI_UP>, <&kp C_BRI_DN>;
+            mods = <(MOD_LSFT)>;
+        };
     };
 
 
@@ -262,7 +268,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│   PgUp   │  Home    │    UP    │  END     │ VolUpPrev│   │Scrn/UpLyr│ MousBtn4 │ MousBtn5 │    @     │ BrightUp │
-         &kp PG_UP     &kp HOME   &kp UP   &kp END   &vol_up_prev     &lt 3 PSCRN  &mkp MB4  &mkp MB5   &kp AT    &kp C_BRI_UP
+         &kp PG_UP     &kp HOME   &kp UP   &kp END   &vol_up_prev     &lt 3 PSCRN  &mkp MB4  &mkp MB5   &kp AT    &brightness
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  TAB     │  Left    │  Down    │  RIGHT   │ PgDwn    │   | mute/Play│LeftMouse │    ESC   │    #     │   `  ~   │
 &ht LGUI TAB   &ht LALT LEFT  &ht LCTRL DOWN  &kp RIGHT  &kp PG_DN    &mute_play_pause  &mkp LCLK  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
