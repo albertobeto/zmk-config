@@ -261,14 +261,14 @@
         left_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│   PgUp   │  Home    │    UP    │  END     │ VolUpPrev│   │Scrn/UpLyr│ MousBtn4 │ MousBtn5 │  F17     │ BrightUp │
-         &kp PG_UP     &kp HOME   &kp UP   &kp END   &vol_up_prev     &lt 3 PSCRN  &mkp MB4  &mkp MB5  &kp F17  &kp C_BRI_UP
+        //│   PgUp   │  Home    │    UP    │  END     │ VolUpPrev│   │Scrn/UpLyr│ MousBtn4 │ MousBtn5 │    @     │ BrightUp │
+         &kp PG_UP     &kp HOME   &kp UP   &kp END   &vol_up_prev     &lt 3 PSCRN  &mkp MB4  &mkp MB5   &kp AT    &kp C_BRI_UP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  TAB     │  Left    │  Down    │  RIGHT   │ PgDwn    │   | mute/Play│LeftMouse │    ESC   │    #     │   `  ~   │
 &ht LGUI TAB   &ht LALT LEFT  &ht LCTRL DOWN  &kp RIGHT  &kp PG_DN    &mute_play_pause  &mkp LCLK  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│   F13    │   F14    │   F15    │   F16    │VolDwnNext│   │ PrintScrn│RightMouse│   @      |    F18   │ BrightDwn│
-            &kp F13  &kp F14    &kp F15    &kp F16   &vol_dwn_next    &f4_f11   &mkp RCLK    &kp AT     &kp F18   &kp C_BRI_DN
+        //│   F13    │   F14    │   F15    │   F16    │VolDwnNext│   │ F4  F11  │RightMouse│   F17    |    F18   │ BrightDwn│
+            &kp F13  &kp F14    &kp F15    &kp F16   &vol_dwn_next    &f4_f11   &mkp RCLK    &kp F17      &kp F18   &kp C_BRI_DN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                             &mo_to 5 1    &shift_caps  &mo_to 4 0      MO_TO(2)   &kp SPACE   &kp BSPC         &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
