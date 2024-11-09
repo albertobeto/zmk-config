@@ -224,7 +224,7 @@
             &kp LT   &kp PLUS      &kp LBRC   &kp RBRC  &kp PRCNT      &kp MINUS   &kp N6    &kp N7      &kp N8    &kp N9   
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   :      │ 	 !      │  (       │    )     │   |      │   │   *  Q   │   0      │  1       │   2      │  3       │
-&ht LGUI COLON  &ht LALT EXCL  &ht LCTRL LPAR  &kp r_par_D  &kp PIPE   &start_q  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
+&ht LGUI COLON  &ht LALT EXCL  &ht LCTRL LPAR  &r_par_D  &kp PIPE   &start_q  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│    >     │  &       │  [       │  ]       │  \       │   │    $     │    4     │   , =    │   . ;    │   5      │
            &kp GT    &kp AMPS    &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR   &kp N4   &coma_equal  &dot_semi   &kp N5
