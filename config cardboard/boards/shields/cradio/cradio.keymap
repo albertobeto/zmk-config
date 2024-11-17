@@ -1,0 +1,143 @@
+// Copyright (c) 2022 The ZMK Contributors
+// SPDX-License-Identifier: MIT
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+#include "cradio.dtsi"
+
+// Home row mods macro
+
+#define HRML(k1,k2) &ht LGUI k1  &ht LALT k2  
+#define HRMR(k1,k2) &ht RALT k1  &ht RGUI k2
+
+
+
+
+/ {
+    
+    
+    combos {
+        compatible = "zmk,combos";
+        combo_copy {
+            timeout-ms = <50>;
+            key-positions = <11 12>;
+            bindings = <&kp K>;
+            require-prior-idle-ms = <100>;
+        };
+        combo_paste {
+            timeout-ms = <50>;
+            key-positions = <12 13>;
+            bindings = <&kp R>;
+            require-prior-idle-ms = <100>;
+        };
+    };
+
+    behaviors {
+        ht: hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <100>;
+            bindings = <&kp>, <&kp>;
+        };
+        bspc_del: backspace_delete {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC>, <&kp DEL>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    
+        space_enter: space_enter_key {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE>, <&kp ENTER>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        coma_under: comma_undescore {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp UNDER>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        
+    };
+
+
+
+    keymap {
+        compatible = "zmk,keymap";
+        default_layer {
+            bindings = <
+        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+        //│  Q       │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │  P       │
+            &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │   ENTER  │
+            &kp A  HRML( S,         D)      &kp F      &kp G          &kp H     &kp J    HRMR(   K,         L)      &kp MINUS
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ ; :      │
+            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp SEMI
+        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                  &to 1     &kp BSPC    &kp LSHIFT         &kp RCTRL  &kp SPACE   &to 2
+        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+            >;
+        };
+
+        right_layer {
+            bindings = <
+        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+        //│ ` ~      │  {       │	  }    │     !    │     |    │   │   *      │   =      │    8     │   9      │    .     │
+            &kp GRAVE   &kp LBRC   &kp RBRC   &kp EXCL   &kp PIPE      &kp STAR   &kp PG_DN  &kp N8  &kp N9    &kp DQT
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│   '      │ 	 (      │  )       │  -       │   _      │   │   /      │   0      │  1       │   2      │  3       │
+            &kp SQT    HRML( LPAR, RPAR)   &kp MINUS   &kp UNDER     &kp SLASH   &kp N0   HRMR( N1,   N2)   &kp N3
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│    "     │  [       │  ]       │  &       │  #       │   │    +     │     4    │   5      │   6      │   7      │
+           &kp DQT    &kp LBKT  &kp RBKT     &kp AMPS    &kp HASH         &kp PLUS     &kp N4     &kp N5     &kp N6     &kp N7
+        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                   &to 2     &kp BSPC   &kp ESC        &kp RCTRL     &kp SPACE    &to 0
+        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+            >;
+        };
+
+        left_layer {
+            bindings = <
+        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+        //│    F4    │  Home    │    UP    │  END     │ Vol up   │   │ ^ & UpLyr│  %       │  ?       │  ~       │ BrightUp │
+            &kp F4     &kp HOME   &kp UP   &kp END   &kp C_VOL_UP     &lt 3 CARET  &kp PRCNT   &kp QMARK   &kp TILDE   &kp C_BRI_UP
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│Play/Pause│  Left    │  Down    │  RIGHT   │ mute     │   | MousMid  │LeftClick │ MousBtn4 │ MousBtn5 │rightClick│
+            &kp C_PP   &kp LEFT   &kp DOWN   &kp RIGHT  &kp C_MUTE    &kp ASTRK  &kp MINUS  HRML( EQUAL, BSLH)   &kp GRAVE
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│  F11     │   PgUp   │  TAb     │  PgDwn   │ Vol down │   │ PRintScrn|  @       │  \       │  $       │ BrightDwn│
+            &kp F11   &kp PG_UP   &kp TAB  &kp PG_DN  &kp C_VOL_DN    &kp PSCRN   &kp AT  &kp BSLH   &kp DLLR   &kp C_BRI_DN
+        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                 &to 1     &kp BSPC     &kp LSHIFT      &kp RCTRL     &kp DEL    &to 0
+        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+            >;
+        };
+
+        tri_layer {
+            bindings = <
+        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+        //│  BT0     │  Bt1     │     BT2  │  BT3     |          │   │KeepUpLaye│          │          │          │          │
+         &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &none     &trans     &none     &none    &none      &none
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│          │ CapsLock │ PrevSong │ NextSong │          │   │          │          │          │          │          │
+            &none     &kp CAPS   &kp C_PREV    &kp C_NEXT   &none          &none     &none         &none   &none       &none    
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│ CLEAR BT │          │          │ RESET    │BOOTLOADER│   │BOOTLOADER│ RESET    │          │          │          │
+            &bt BT_CLR   &none      &none   &sys_reset &bootloader    &bootloader  &sys_reset   &none     &none     &none
+        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                    &none        &none     &none         &none     &none    &none
+        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+            >;
+        };
+    };
+};
