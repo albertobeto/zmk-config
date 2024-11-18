@@ -115,6 +115,11 @@
             key-positions = <0 1 2 3>;
             bindings = <&sys_reset>;
         };
+        combo_reset_right {
+            timeout-ms = <100>;
+            key-positions = <6 7 8 9>;
+            bindings = <&sys_reset>;
+        };
     };
 
 
