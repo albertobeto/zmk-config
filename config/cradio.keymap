@@ -58,11 +58,6 @@
             key-positions = <13 14>;
             bindings = <&kp BSPC>;
         };
-        combo_backspace_3 {
-            timeout-ms = <50>;
-            key-positions = <11 12>;
-            bindings = <&kp BSPC>;
-        };
         combo_delete {
             timeout-ms = <50>;
             key-positions = <16 17>;
@@ -75,9 +70,9 @@
             bindings = <&kp ENTER>;
             require-prior-idle-ms = <50>;
         };
-        combo_enter2 {
+        combo_enter_2 {
             timeout-ms = <100>;
-            key-positions = <18 19>;
+            key-positions = <21 22 23>;
             bindings = <&kp ENTER>;
             require-prior-idle-ms = <50>;
         };
@@ -87,9 +82,9 @@
             bindings = <&kp LS(ENTER)>;
             require-prior-idle-ms = <50>;
         };
-        combo_shift_enter2 {
+        combo_shift_enter_2 {
             timeout-ms = <100>;
-            key-positions = <18 19 31>;
+            key-positions = <21 22 23 31>;
             bindings = <&kp LS(ENTER)>;
             require-prior-idle-ms = <50>;
         };
@@ -99,6 +94,7 @@
             bindings = <&kp SLASH>;
             require-prior-idle-ms = <50>;
         };
+        // Needed in case I press shift too fast.
         combo_question {
             timeout-ms = <100>;
             key-positions = <28 29 31>;
@@ -108,6 +104,11 @@
         combo_third_layer {
             timeout-ms = <1000>;
             key-positions = <32 33>;
+            bindings = <&mo_to 5 1>;
+        };
+        combo_third_layer_2 {
+            timeout-ms = <50>;
+            key-positions = <11 12>;
             bindings = <&mo_to 5 1>;
         };
         combo_reset_left {
@@ -166,6 +167,12 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp UNDER>, <&kp MINUS>;
+            mods = <(MOD_LSFT)>;
+        };
+        five_dash: five_dash {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp N5>, <&kp MINUS>;
             mods = <(MOD_LSFT)>;
         };
         start_q: start_q {
@@ -236,8 +243,8 @@
         //│   !      │ 	 :      │  (       │   )   D  │   &      │   │   *  Q   │   0      │  1       │   2      │  3       │
 &ht LGUI EXCL  &ht LALT COLON  &ht LCTRL LPAR  &r_par_D  &kp AMPS   &start_q  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│    >     │  |       │  [       │  ]       │  \       │   │    $     │    4     │   , ;    │   . =    │   5      │
-           &kp GT    &kp PIPE    &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR   &kp N4   &coma_semi  &dot_equal   &kp N5
+        //│    >     │  |       │  [       │  ]       │  \       │   │    $     │    4     │   , ;    │   . =    │   5  -   │
+           &kp GT    &kp PIPE    &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR   &kp N4   &coma_semi  &dot_equal   &five_dash
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                &mo_to 4 0   &shift_caps  &mo_to 4 0     MO_TO(2)   &kp SPACE   &kp BSPC         &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -305,8 +312,8 @@
         //│   !      │ 	 :      │  (       │   )   D  │   &      │   │   *  Q   │   0      │  1       │   2      │  3       │
  &ht LGUI EXCL  &ht LALT COLON  &ht LCTRL LPAR  &r_par_D  &kp AMPS   &start_q  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│    >     │  |       │  [       │  ]       │  \       │   │    $     │    4     │   , ;    │   . =    │   5      │
-           &kp GT    &kp PIPE    &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR   &kp N4   &coma_semi  &dot_equal   &kp N5
+        //│    >     │  |       │  [       │  ]       │  \       │   │    $     │    4     │   , ;    │   . =    │   5  -   │
+           &kp GT    &kp PIPE    &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR   &kp N4   &coma_semi  &dot_equal   &five_dash
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         // ********************* IF YOU UPDATE THE KEYMAP, DON'T CHANGE THE THUMBS. ************************
                                  MO_TO(1)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   &kp BSPC  
