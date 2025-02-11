@@ -88,6 +88,12 @@
             bindings = <&kp LS(ENTER)>;
             require-prior-idle-ms = <50>;
         };
+        combo_space_left {
+            timeout-ms = <100>;
+            key-positions = <21 23>;
+            bindings = <&kp SPACE>;
+            require-prior-idle-ms = <50>;
+        };
         combo_slash {
             timeout-ms = <100>;
             key-positions = <28 29>;
