@@ -90,7 +90,7 @@
         };
         combo_space_left {
             timeout-ms = <100>;
-            key-positions = <1 3>;
+            key-positions = <21 23>;
             bindings = <&kp SPACE>;
             require-prior-idle-ms = <50>;
         };
