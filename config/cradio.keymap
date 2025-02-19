@@ -123,6 +123,11 @@
             key-positions = <11 12>;
             bindings = <&mo_to 5 1>;
         };
+        combo_third_layer_3 {
+            timeout-ms = <50>;
+            key-positions = <27 28>;
+            bindings = <&mo_to 5 1>;
+        };
         combo_reset_left {
             timeout-ms = <100>;
             key-positions = <0 1 2 3>;
