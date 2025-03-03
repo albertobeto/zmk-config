@@ -234,7 +234,7 @@
           &ht LGUI A  &ht LALT S  &ht LCTRL D   &kp F      &kp G          &kp H     &kp J  &ht LCTRL K  &ht LALT L   &ht LGUI SQT 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , ;      │ . =      │ _  -  /  │
-            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_semi  &dot_equal    &under_dash 
+            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_semi  &dot_equal    &kp MINUS 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                  MO_TO(1)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   &kp BSPC       &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -244,14 +244,14 @@
         right_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  <       │  +       │	  {    │     }    │     %    │   │   -  _   │   6  ^   │    7     │   8      │    9     │
-            &kp LT   &kp PLUS      &kp LBRC   &kp RBRC  &kp PRCNT      &kp MINUS   &kp N6    &kp N7      &kp N8    &kp N9   
+        //│  <       │  +       │	  {    │     }    │     $    │   │   -  _   │   6  ^   │    7     │   8      │    9     │
+            &kp LT   &kp PLUS      &kp LBRC   &kp RBRC  &kp DLLR      &kp MINUS   &kp N6    &kp N7      &kp N8    &kp N9   
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   !      │ 	 :      │  (       │   )   D  │   &      │   │   *  Q   │   0      │  1       │   2      │  3       │
 &ht LGUI EXCL  &ht LALT COLON  &ht LCTRL LPAR  &r_par_D  &kp AMPS   &start_q  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│    >     │  |       │  [       │  ]       │  \       │   │    $     │    4     │   , ;    │   . =    │   5  -   │
-           &kp GT    &kp PIPE    &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR   &kp N4   &coma_semi  &dot_equal   &five_dash
+        //│    >     │  |       │  [       │  ]       │  \       │   │    %     │    4     │   , ;    │   . =    │   5  -   │
+           &kp GT    &kp PIPE    &kp LBKT  &kp RBKT    &kp BSLH        &kp PRCNT    &kp N4   &coma_semi  &dot_equal   &five_dash
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                &mo_to 4 0   &shift_caps  &mo_to 4 0     MO_TO(2)   &kp SPACE   &kp BSPC         &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -302,7 +302,7 @@
           &ht LGUI A  &ht LALT S  &ht LCTRL D   &kp F      &kp G          &kp H     &kp J  &ht LCTRL K  &ht LALT L   &ht LGUI SQT 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , ;      │ . =      │ _  -  /  │
-            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_semi  &dot_equal    &under_dash 
+            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_semi  &dot_equal    &kp MINUS 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         // ********************* IF YOU UPDATE THE KEYMAP, DON'T CHANGE THE THUMBS. ************************
                                  MO_TO(1)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   &kp BSPC  
@@ -313,14 +313,14 @@
         copy_right_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  <       │  +       │	  {    │     }    │     %    │   │   -  _   │   6  ^   │    7     │   8      │    9     │
-            &kp LT   &kp PLUS      &kp LBRC   &kp RBRC  &kp PRCNT      &kp MINUS   &kp N6    &kp N7      &kp N8    &kp N9   
+        //│  <       │  +       │	  {    │     }    │     $    │   │   -  _   │   6  ^   │    7     │   8      │    9     │
+            &kp LT   &kp PLUS      &kp LBRC   &kp RBRC  &kp DLLR      &kp MINUS   &kp N6    &kp N7      &kp N8    &kp N9   
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   !      │ 	 :      │  (       │   )   D  │   &      │   │   *  Q   │   0      │  1       │   2      │  3       │
  &ht LGUI EXCL  &ht LALT COLON  &ht LCTRL LPAR  &r_par_D  &kp AMPS   &start_q  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│    >     │  |       │  [       │  ]       │  \       │   │    $     │    4     │   , ;    │   . =    │   5  -   │
-           &kp GT    &kp PIPE    &kp LBKT  &kp RBKT    &kp BSLH         &kp DLLR   &kp N4   &coma_semi  &dot_equal   &five_dash
+        //│    >     │  |       │  [       │  ]       │  \       │   │    %     │    4     │   , ;    │   . =    │   5  -   │
+           &kp GT    &kp PIPE    &kp LBKT  &kp RBKT    &kp BSLH         &kp PRCNT   &kp N4   &coma_semi  &dot_equal   &five_dash
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         // ********************* IF YOU UPDATE THE KEYMAP, DON'T CHANGE THE THUMBS. ************************
                                  MO_TO(1)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   &kp BSPC  
