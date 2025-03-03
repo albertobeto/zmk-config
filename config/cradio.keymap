@@ -64,6 +64,12 @@
             bindings = <&kp DEL>;
             require-prior-idle-ms = <50>;
         };
+        combo_delete_2 {
+            timeout-ms = <50>;
+            key-positions = <0 1>;
+            bindings = <&kp DEL>;
+            require-prior-idle-ms = <50>;
+        };
         combo_enter {
             timeout-ms = <100>;
             key-positions = <17 18>;
