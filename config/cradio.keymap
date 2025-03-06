@@ -240,7 +240,7 @@
           &ht LGUI A  &ht LALT S  &ht LCTRL D   &kp F      &kp G          &kp H     &kp J  &ht LCTRL K  &ht LALT L   &ht LGUI SQT 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , ;      │ . =      │ _  -  /  │
-            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_semi  &dot_equal    &kp MINUS 
+            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_semi  &dot_equal    &under_dash 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                  MO_TO(1)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   &kp BSPC       &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -308,7 +308,7 @@
           &ht LGUI A  &ht LALT S  &ht LCTRL D   &kp F      &kp G          &kp H     &kp J  &ht LCTRL K  &ht LALT L   &ht LGUI SQT 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , ;      │ . =      │ _  -  /  │
-            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_semi  &dot_equal    &kp MINUS 
+            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_semi  &dot_equal    &under_dash 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         // ********************* IF YOU UPDATE THE KEYMAP, DON'T CHANGE THE THUMBS. ************************
                                  MO_TO(1)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   &kp BSPC  
