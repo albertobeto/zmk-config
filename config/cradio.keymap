@@ -225,6 +225,12 @@
             bindings = <&kp F4>, <&kp F11>;
             mods = <(MOD_LSFT)>;
         };
+        f4_f11: f4_f11 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(F21)>, <&kp LS(F22)>;
+            mods = <(MOD_LSFT)>;
+        };
     };
 
 
@@ -288,10 +294,10 @@
       &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &bt BT_CLR     &trans     &kp F1     &kp F2    &kp F3      &kp F4
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│USB BLE TG│          │          │          │          │   │          │          │          │          │          │
-         &out OUT_TOG  &none     &none      &none        &none          &none     &kp F5         &kp F6   &kp F7       &kp F8    
+         &out OUT_TOG  &none     &none      &none        &none          &none     &kp K_NEXT         &kp C_NEXT   &kp K_PP       &kp C_PLAY    
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ BtDiscon0| BtDiscon1│ BtDiscon2│ BtDiscon3│BOOTLOADER│   │BOOTLOADER│          │          │          │          │
- &bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bootloader   &bootloader  &kp F9     &kp F10     &kp F21  &kp F12
+ &bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bootloader   &bootloader  &kp C_BKLT_TOG     &kp C_AL_CALC     &kp K_PP  &kp C_PP
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                     &none        &none     &none         &none     &none    &none   
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
