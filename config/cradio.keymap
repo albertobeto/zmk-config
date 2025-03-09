@@ -213,6 +213,12 @@
             bindings = <&kp C_VOL_DN>, <&kp C_NEXT>;
             mods = <(MOD_LSFT)>;
         };
+        at_next_song: at_next_song {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp AT>, <&kp K_NEXT>;
+            mods = <(MOD_LSFT)>;
+        };
         mute_play_pause: mute_play_pause {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -229,39 +235,6 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp LS(F21)>, <&kp LS(F22)>;
-            mods = <(MOD_LSFT)>;
-        };
-
-
-
-        vol_dwn_next1: vol_dwn_next1 {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp C_VOL_UP>, <&kp C_NEXT>;
-            mods = <(MOD_LSFT)>;
-        };
-        vol_dwn_next2: vol_dwn_next2 {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp K_VOL_UP>, <&kp C_NEXT>;
-            mods = <(MOD_LSFT)>;
-        };
-        vol_dwn_next3: vol_dwn_next3 {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp K_VOL_UP2>, <&kp C_NEXT>;
-            mods = <(MOD_LSFT)>;
-        };
-        vol_dwn_next4: vol_dwn_next4 {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp C_VOL_UP>, <&kp K_NEXT>;
-            mods = <(MOD_LSFT)>;
-        };
-        vol_dwn_next5: vol_dwn_next5 {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp K_VOL_UP>, <&kp K_NEXT>;
             mods = <(MOD_LSFT)>;
         };
     };
@@ -307,14 +280,13 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│   PgUp   │  Home    │    UP    │  END     │ VolUpPrev│   │Scrn/UpLyr│ MousBtn4 │ MousBtn5 │    @     │ BrightUp │
-         &kp PG_UP     &kp HOME   &kp UP   &kp END   &vol_up_prev     &lt 3 PSCRN  &mkp MB4  &mkp MB5   &kp AT    &kp C_BRI_UP
+         &kp PG_UP     &kp HOME   &kp UP   &kp END   &vol_up_prev     &lt 3 PSCRN  &mkp MB4  &mkp MB5  &at_next_song  &kp C_BRI_UP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  TAB     │  Left    │  Down    │  RIGHT   │ PgDwn    │   | mute/Play│LeftMouse │    ESC   │    #     │   `  ~   │
 &ht LGUI TAB   &ht LALT LEFT  &ht LCTRL DOWN  &kp RIGHT  &kp PG_DN    &mute_play_pause  &mkp LCLK  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   F22    │   F14    │   F15    │   F16    │VolDwnNext│   │ F4  F11  │   F17    |    F18   │RightMouse│ BrightDwn│
-            &vol_dwn_next1  &vol_dwn_next2    &vol_dwn_next3    &vol_dwn_next4   &vol_dwn_next5    &f4_f11     &kp F17      &kp F18  &mkp RCLK   &kp C_BRI_DN
-        //    &f20_f21  &kp F14    &kp F15    &kp F16   &vol_dwn_next    &f4_f11     &kp F17      &kp F18  &mkp RCLK   &kp C_BRI_DN
+            &f20_f21  &kp F14    &kp F15    &kp F16   &vol_dwn_next    &f4_f11     &kp F17      &kp F18  &mkp RCLK   &kp C_BRI_DN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                             &mo_to 5 1    &shift_caps  &mo_to 4 0      MO_TO(2)   &kp SPACE   &kp BSPC         &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -324,14 +296,14 @@
         tri_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  BT0     │  Bt1     │     BT2  │  BT3     | CLEAR BT │   │KeepUpLaye│          │          │          │          │
-      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &bt BT_CLR     &trans     &kp F1     &kp F2    &kp F3      &kp F4
+        //│  BT0     │  Bt1     │     BT2  │  BT3     | CLEAR BT │   │KeepUpLaye│   F1     │   F2     │   F3     │   F4     │
+      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &bt BT_CLR     &trans   &kp F1     &kp F2    &kp F3      &kp F5
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│USB BLE TG│          │          │          │          │   │          │          │          │          │          │
-         &out OUT_TOG  &none     &none      &none        &none          &none     &kp K_NEXT         &kp C_NEXT   &kp K_PP       &kp C_PLAY    
+        //│USB BLE TG│          │          │          │          │   │Calculator│ Prev Song│Play Pause│   F6     │   F7     │
+         &out OUT_TOG  &none     &none      &none        &none      &kp C_AL_CALC  &kp K_PREV  &kp K_PP   &kp F6   &kp F7  
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ BtDiscon0| BtDiscon1│ BtDiscon2│ BtDiscon3│BOOTLOADER│   │BOOTLOADER│          │          │          │          │
- &bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bootloader   &bootloader  &kp C_BKLT_TOG     &kp C_AL_CALC     &kp K_PP  &kp C_PP
+        //│ BtDiscon0| BtDiscon1│ BtDiscon2│ BtDiscon3│BOOTLOADER│   │BOOTLOADER│    F8    │   F9     │    F10   │   F12    │
+ &bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bootloader   &bootloader  &kp F8    &kp F9     &kp F10   &kp 12
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                     &none        &none     &none         &none     &none    &none   
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
