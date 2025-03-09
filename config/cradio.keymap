@@ -4,8 +4,10 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/mouse.h>
+//#include <dt-bindings/zmk/mouse.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/pointing.h>
+
 
 #define MO_TO(layer) &mo_to layer layer   // Macro to apply momentary-layer-on-hold/toggle-layer-on-tap to a specific layer
 
@@ -286,7 +288,8 @@
 &ht LGUI TAB   &ht LALT LEFT  &ht LCTRL DOWN  &kp RIGHT  &kp PG_DN    &mute_play_pause  &mkp LCLK  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   F22    │   F14    │   F15    │   F16    │VolDwnNext│   │ F4  F11  │   F17    |    F18   │RightMouse│ BrightDwn│
-            &f20_f21  &kp F14    &kp F15    &kp F16   &vol_dwn_next    &f4_f11     &kp F17      &kp F18  &mkp RCLK   &kp C_BRI_DN
+        //    &f20_f21  &kp F14    &kp F15    &kp F16   &vol_dwn_next    &f4_f11     &kp F17      &kp F18  &mkp RCLK   &kp C_BRI_DN
+&mmv MOVE_DOWN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &vol_dwn_next    &f4_f11     &kp F17      &kp F18  &mkp RCLK   &kp C_BRI_DN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                             &mo_to 5 1    &shift_caps  &mo_to 4 0      MO_TO(2)   &kp SPACE   &kp BSPC         &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
