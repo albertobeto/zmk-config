@@ -317,14 +317,14 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│   PgUp   │  Home    │    UP    │  END     │ VolUpPrev│   │Scrn/UpLyr│ MousBtn4 │ MousBtn5 │    @     │ BrightUp │
-         &kp PG_UP     &kp HOME   &kp UP   &kp END   &vol_up_prev     &lt 4 PSCRN  &mkp MB4  &mkp MB5  &at_next_song  &kp C_BRI_UP
+         &kp PG_UP     &kp HOME   &kp UP   &kp END   &vol_up_prev     &lt 4 PSCRN  &msc SCRL_DOWN  &msc SCRL_DOWN  &msc SCRL_DOWN  &msc SCRL_DOWN
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  TAB     │  Left    │  Down    │  RIGHT   │ mute/Play│   |RightMouse│ BrightDwn│    ESC   │    #     │   `  ~   │
-&ht LGUI TAB  &ht LALT LEFT  &ht LCTRL DOWN  &kp RIGHT  &mute_play_pause  &mkp RCLK  &kp C_BRI_DN  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
+&ht LGUI TAB  &ht LALT LEFT  &ht LCTRL DOWN  &kp RIGHT  &mute_play_pause  &msc SCRL_DOWN  &kp C_BRI_DN  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  PgDwn   │  ScrlUp  │  ScrlDwn │ LeftMouse│VolDwnNext│   │ F4  F11  │   F17    |    F18   │RightMouse│ BrightDwn│
         //    &f20_f21  &kp F14    &kp F15    &kp F16   &vol_dwn_next    &f4_f11     &kp F17      &kp F18  &mkp RCLK   &kp C_BRI_DN
-&kp PG_DN  &msc SCRL_UP   &msc SCRL_DOWN  &mkp LCLK &vol_dwn_next  &f4_f11   &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
+&kp PG_DN  &msc SCRL_UP   &msc SCRL_DOWN  &mkp LCLK &vol_dwn_next  &msc SCRL_DOWN   &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                             &mo_to 6 1    &shift_caps  &mo_to 5 0      MO_TO(3)   &kp SPACE   &kp BSPC         &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
