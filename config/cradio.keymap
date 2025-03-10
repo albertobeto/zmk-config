@@ -128,14 +128,14 @@
         };
         combo_slash {
             timeout-ms = <100>;
-            key-positions = <28 29>;
+            key-positions = <18 19>;
             bindings = <&kp SLASH>;
             require-prior-idle-ms = <50>;
         };
         // Needed in case I press shift too fast.
         combo_question {
             timeout-ms = <100>;
-            key-positions = <28 29 31>;
+            key-positions = <18 19 31>;
             bindings = <&kp LS(SLASH)>;
             require-prior-idle-ms = <50>;
         };
@@ -151,7 +151,7 @@
         };
         combo_third_layer_3 {
             timeout-ms = <50>;
-            key-positions = <27 28>;
+            key-positions = <26 27 28>;
             bindings = <&mo_to 5 1>;
         };
     };
@@ -307,7 +307,7 @@
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   F22    │   F14    │   F15    │   F16    │VolDwnNext│   │ F4  F11  │   F17    |    F18   │RightMouse│ BrightDwn│
         //    &f20_f21  &kp F14    &kp F15    &kp F16   &vol_dwn_next    &f4_f11     &kp F17      &kp F18  &mkp RCLK   &kp C_BRI_DN
-&mmv MOVE_DOWN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &vol_dwn_next    &f4_f11     &msc SCRL_UP   &msc SCRL_DOWN  &mkp RCLK   &kp C_BRI_DN
+&kp C_BRI_DN  &msc SCRL_UP   &msc SCRL_DOWN  &mkp RCLK &vol_dwn_next  &f4_f11   &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                             &mo_to 5 1    &shift_caps  &mo_to 4 0      MO_TO(2)   &kp SPACE   &kp BSPC         &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
