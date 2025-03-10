@@ -14,17 +14,17 @@
 #define MO_TO(layer) &mo_to layer layer   // Macro to apply momentary-layer-on-hold/toggle-layer-on-tap to a specific layer
 
 &mmv {
-  acceleration-exponent = <1>;          // 1
+  acceleration-exponent = <2>;          // 1
   time-to-max-speed-ms = <500>;         // 300
   delay-ms = <0>;                       // 0
-  trigger-period-ms = <100>;
+  //trigger-period-ms = <100>;
 };
 
 &msc {
   acceleration-exponent = <0>;          // 0
-  time-to-max-speed-ms = <3000>;         // 300
+  time-to-max-speed-ms = <0>;         // 300
   delay-ms = <0>;                       // 0
-  trigger-period-ms = <100>;
+  //trigger-period-ms = <100>;
 };
 
 / {
