@@ -5,22 +5,6 @@
  */
 
 #include "cradio.dtsi"
-#include <dt-bindings/zmk/pointing.h>
-#include <input/processors.dtsi>
-#include <zephyr/dt-bindings/input/input-event-codes.h>
-
-&mmv {
-  acceleration-exponent = <1>;          // 1
-  time-to-max-speed-ms = <5000>;         // 300
-  delay-ms = <0>;                       // 0
-};
-
-&msc {
-  acceleration-exponent = <0>;          // 0
-  time-to-max-speed-ms = <3000>;         // 300
-  delay-ms = <0>;                       // 0
-};
-
 
 &kscan0 {
         compatible = "zmk,kscan-gpio-direct";
