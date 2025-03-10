@@ -289,7 +289,7 @@
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   F22    │   F14    │   F15    │   F16    │VolDwnNext│   │ F4  F11  │   F17    |    F18   │RightMouse│ BrightDwn│
         //    &f20_f21  &kp F14    &kp F15    &kp F16   &vol_dwn_next    &f4_f11     &kp F17      &kp F18  &mkp RCLK   &kp C_BRI_DN
-&mmv MOVE_DOWN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &vol_dwn_next    &f4_f11     &kp F17      &kp F18  &mkp RCLK   &kp C_BRI_DN
+&mmv MOVE_DOWN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &vol_dwn_next    &f4_f11     &msc SCRL_UP   &msc SCRL_DOWN  &mkp RCLK   &kp C_BRI_DN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                             &mo_to 5 1    &shift_caps  &mo_to 4 0      MO_TO(2)   &kp SPACE   &kp BSPC         &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
