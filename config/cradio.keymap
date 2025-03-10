@@ -1,7 +1,7 @@
 // Copyright (c) 2022 The ZMK Contributors
 // SPDX-License-Identifier: MIT
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
 
 #include <behaviors.dtsi>
@@ -24,10 +24,10 @@
 };
 
 &msc {
-  acceleration-exponent = <1>;          // 0
-  time-to-max-speed-ms = <1000>;         // 300
+  acceleration-exponent = <0>;          // 0
+  time-to-max-speed-ms = <0>;         // 300
   delay-ms = <0>;                       // 0
-  //trigger-period-ms = <100>;
+  trigger-period-ms = <1>;
 };
 
 / {
