@@ -30,6 +30,20 @@
   //trigger-period-ms = <1>;
 };
 
+&mmv_input_listener {
+  fast {
+    layers = <3>;
+    input-processors = <&zip_xy_scaler 3 1>;
+  };
+};
+
+&msc_input_listener {
+  fast {
+    layers = <3>;
+    input-processors = <&zip_scroll_scaler 3 1>;
+  };
+};
+
 / {
     combos {
         compatible = "zmk,combos";
