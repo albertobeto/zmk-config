@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 15    // default: 10
 
 #include <behaviors.dtsi>
 #include <input/processors.dtsi>
@@ -17,8 +17,8 @@
 #define MO_TO(layer) &mo_to layer layer   // Macro to apply momentary-layer-on-hold/toggle-layer-on-tap to a specific layer
 
 &mmv {
-  acceleration-exponent = <2>;          // 1
-  time-to-max-speed-ms = <2000>;         // 300
+  acceleration-exponent = <1>;          // 1
+  time-to-max-speed-ms = <1000>;         // 300
   delay-ms = <0>;                       // 0
   //trigger-period-ms = <100>;
 };
@@ -27,7 +27,7 @@
   acceleration-exponent = <0>;          // 0
   time-to-max-speed-ms = <0>;         // 300
   delay-ms = <0>;                       // 0
-  trigger-period-ms = <1>;
+  //trigger-period-ms = <1>;
 };
 
 / {
@@ -127,7 +127,7 @@
             require-prior-idle-ms = <50>;
         };
         combo_slash {
-            timeout-ms = <100>;
+            timeout-ms = <70>;
             key-positions = <18 19>;
             bindings = <&kp SLASH>;
             require-prior-idle-ms = <50>;
