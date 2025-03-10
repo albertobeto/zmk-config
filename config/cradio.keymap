@@ -241,32 +241,18 @@
             bindings = <&kp LS(F21)>, <&kp LS(F22)>;
             mods = <(MOD_LSFT)>;
         };
+
+
+        &mmv {
+            acceleration-exponent = <1>;          // 1
+            time-to-max-speed-ms = <500>;         // 300
+            delay-ms = <0>;                       // 0
+        };
         
-        /omit-if-no-ref/ mmv: mouse_move {
-            compatible = "zmk,behavior-input-two-axis";
-            #binding-cells = <1>;
-            x-input-code = <INPUT_REL_X>;
-            y-input-code = <INPUT_REL_Y>;
-            time-to-max-speed-ms = <300>;
-            acceleration-exponent = <1>;
-            delay-ms = <0>;
-        };
-        mmv_input_listener: mmv_input_listener {
-            compatible = "zmk,input-listener";
-            device = <&mmv>;
-        };
-        /omit-if-no-ref/ msc: mouse_scroll  {
-            compatible = "zmk,behavior-input-two-axis";
-            #binding-cells = <1>;
-            x-input-code = <INPUT_REL_HWHEEL>;
-            y-input-code = <INPUT_REL_WHEEL>;
-            time-to-max-speed-ms = <300>;
-            acceleration-exponent = <0>;
-            delay-ms = <0>;
-        };
-        msc_input_listener: msc_input_listener {
-            compatible = "zmk,input-listener";
-            device = <&msc>;
+        &msc {
+            acceleration-exponent = <0>;          // 0
+            time-to-max-speed-ms = <300>;         // 300
+            delay-ms = <0>;                       // 0
         };
     };
 
