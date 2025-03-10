@@ -20,14 +20,12 @@
   acceleration-exponent = <1>;          // 1
   time-to-max-speed-ms = <700>;         // 300
   delay-ms = <0>;                       // 0
-  //trigger-period-ms = <100>;
 };
 
 &msc {
   acceleration-exponent = <0>;          // 0
   time-to-max-speed-ms = <0>;         // 300
   delay-ms = <0>;                       // 0
-  //trigger-period-ms = <1>;
 };
 
 &mmv_input_listener {
@@ -40,7 +38,7 @@
 &msc_input_listener {
   fast {
     layers = <3>;
-    input-processors = <&zip_scroll_scaler 2 1>;
+    input-processors = <&zip_scroll_scaler 3 1>;
   };
 };
 
