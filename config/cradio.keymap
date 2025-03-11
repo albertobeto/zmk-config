@@ -168,11 +168,6 @@
         };
         combo_third_layer_3 {
             timeout-ms = <50>;
-            key-positions = <16 17 18>;
-            bindings = <&mo_to 6 1>;
-        };
-        combo_third_layer_4 {
-            timeout-ms = <50>;
             key-positions = <16 18>;
             bindings = <&mo_to 6 1>;
         };
@@ -279,6 +274,12 @@
             bindings = <&kp LS(F21)>, <&kp LS(F22)>;
             mods = <(MOD_LSFT)>;
         };
+        mouse_click_LR: mouse_click_LR {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mkp LCLK>, <&mkp RCLK>;
+            mods = <(MOD_LSFT)>;
+        };
     };
 
 
@@ -324,11 +325,11 @@
         //│   PgUp   │  Home    │    UP    │  END     │ VolUpPrev│   │Scrn/UpLyr│  ScrlUp  │ ScrlDwn  │  @  Next │ F4  F11  │
          &kp PG_UP     &kp HOME   &kp UP   &kp END   &vol_up_prev     &lt 4 PSCRN  &msc SCRL_UP  &msc SCRL_DOWN  &at_next_song  &f4_f11 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  TAB     │  Left    │  Down    │  RIGHT   │ mute/Play│   |BrightUp  |RightMouse│    ESC   │    #     │   `  ~   │
-&ht LGUI TAB  &ht LALT LEFT  &ht LCTRL DOWN  &kp RIGHT  &mute_play_pause  &kp C_BRI_UP  &mkp RCLK  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
+        //│  TAB     │  Left    │  Down    │  RIGHT   │ mute/Play│   |BrightUp  |Mouse Clck│    ESC   │    #     │   `  ~   │
+&ht LGUI TAB  &ht LALT LEFT  &ht LCTRL DOWN  &kp RIGHT  &mute_play_pause  &kp C_BRI_UP  &mouse_click_LR  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  PgDwn   │ MousBtn4 │ MousBtn5 │ LeftMouse│VolDwnNext│   │ BrightDwn│  Left    |   Up     │  Right   │  Down    │
-          &kp PG_DN  &mkp MB4  &mkp MB5  &mkp LCLK  &vol_dwn_next    &kp C_BRI_DN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
+        //│  PgDwn   │ MousBtn4 │ MousBtn5 │Mouse Clck│VolDwnNext│   │ BrightDwn│  Left    |   Up     │  Right   │  Down    │
+    &kp PG_DN  &mkp MB4  &mkp MB5  &mouse_click_LR  &vol_dwn_next    &kp C_BRI_DN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                             &mo_to 6 1    &shift_caps  &mo_to 5 0      &mo_to 3 2   &kp SPACE   &kp BSPC         &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -341,11 +342,11 @@
         //│   PgUp   │  Home    │    UP    │  END     │ VolUpPrev│   │Scrn/UpLyr│  ScrlUp  │ ScrlDwn  │  @  Next │ F4  F11  │
          &kp PG_UP     &kp HOME   &kp UP   &kp END   &vol_up_prev     &lt 4 PSCRN  &msc SCRL_UP  &msc SCRL_DOWN  &at_next_song  &f4_f11 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  TAB     │  Left    │  Down    │  RIGHT   │ mute/Play│   |BrightUp  |RightMouse│    ESC   │    #     │   `  ~   │
-&ht LGUI TAB  &ht LALT LEFT  &ht LCTRL DOWN  &kp RIGHT  &mute_play_pause  &kp C_BRI_UP  &mkp RCLK  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
+        //│  TAB     │  Left    │  Down    │  RIGHT   │ mute/Play│   |BrightUp  |Mouse Clck│    ESC   │    #     │   `  ~   │
+&ht LGUI TAB  &ht LALT LEFT  &ht LCTRL DOWN  &kp RIGHT  &mute_play_pause  &kp C_BRI_UP  &mouse_click_LR  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  PgDwn   │ MousBtn4 │ MousBtn5 │ LeftMouse│VolDwnNext│   │ BrightDwn│  Left    |   Up     │  Right   │  Down    │
-          &kp PG_DN  &mkp MB4  &mkp MB5  &mkp LCLK  &vol_dwn_next    &kp C_BRI_DN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
+        //│  PgDwn   │ MousBtn4 │ MousBtn5 │Mouse Clck│VolDwnNext│   │ BrightDwn│  Left    |   Up     │  Right   │  Down    │
+    &kp PG_DN  &mkp MB4  &mkp MB5  &mouse_click_LR  &vol_dwn_next    &kp C_BRI_DN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                             &mo_to 6 1    &shift_caps  &mo_to 5 0      MO_TO(2)   &kp SPACE   &kp BSPC         &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
