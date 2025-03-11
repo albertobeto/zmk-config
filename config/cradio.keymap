@@ -328,7 +328,7 @@
         //│  TAB     │  Left    │  Down    │  RIGHT   │ mute/Play│   |BrightUp  |Mouse Clck│    ESC   │    #     │   `  ~   │
 &ht LGUI TAB  &ht LALT LEFT  &ht LCTRL DOWN  &kp RIGHT  &mute_play_pause  &kp C_BRI_UP  &mouse_click_LR  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  PgDwn   │ MousBtn4 │ MousBtn5 │Mouse Clck│VolDwnNext│   │ BrightDwn│  Left    |   Up     │  Right   │  Down    │
+        //│  PgDwn   │ MousBtn4 │ MousBtn5 │Mouse Clck│VolDwnNext│   │ BrightDwn│Mouse Left| Mouse Up │MouseRight|Mouse Down│
     &kp PG_DN  &mkp MB4  &mkp MB5  &mouse_click_LR  &vol_dwn_next    &kp C_BRI_DN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                             &mo_to 6 1    &shift_caps  &mo_to 5 0      &mo_to 3 2   &kp SPACE   &kp BSPC         &kp B   &kp W   &kp P
