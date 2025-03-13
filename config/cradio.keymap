@@ -197,8 +197,8 @@
         nav_td_mt: tap_dance_mod_tap {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&mt 3 2>, <&kp 3>;
+            tapping-term-ms = <400>;
+            bindings = <&mt 3 2>, <&to 3>;
         };
 
         shift_caps: tap_dance_0 {
