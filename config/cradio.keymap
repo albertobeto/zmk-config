@@ -232,10 +232,10 @@
             bindings = <&kp N5>, <&kp MINUS>;
             mods = <(MOD_LSFT)>;
         };
-        start_q: start_q {
+        plus_q: plus_q {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp STAR>, <&kp LS(Q)>;
+            bindings = <&kp PLUS>, <&kp LS(Q)>;
             mods = <(MOD_LSFT)>;
         };
         r_par_D: r_par_D {
@@ -312,11 +312,11 @@
         right_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  <       │  +       │	  {    │     }    │     $    │   │   -  _   │   6  ^   │    7     │   8      │    9     │
-            &kp LT   &kp PLUS      &kp LBRC   &kp RBRC  &kp DLLR      &kp MINUS   &kp N6    &kp N7      &kp N8    &kp N9   
+        //│  <       │    Q     │	  {    │     }    │     $    │   │   -  _   │   6  ^   │    7     │   8      │    9     │
+            &kp LT     &kp STAR    &kp LBRC   &kp RBRC  &kp DLLR      &kp MINUS   &kp N6    &kp N7      &kp N8    &kp N9   
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│   !      │ 	 :      │  (       │   )   D  │   &      │   │   *  Q   │   0      │  1       │   2      │  3       │
-&ht LGUI EXCL  &ht LALT COLON  &ht LCTRL LPAR  &r_par_D  &kp AMPS   &start_q  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
+        //│   !      │ 	 :      │  (       │   )   D  │   &      │   │   +   Q  │   0      │  1       │   2      │  3       │
+&ht LGUI EXCL  &ht LALT COLON  &ht LCTRL LPAR  &r_par_D  &kp AMPS     &plus_q   &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│    >     │  |       │  [       │  ]       │  \       │   │    %     │    4     │   , ;    │   . =    │   5  -   │
            &kp GT    &kp PIPE    &kp LBKT  &kp RBKT    &kp BSLH        &kp PRCNT    &kp N4   &coma_semi  &dot_equal   &five_dash
@@ -363,11 +363,11 @@
         tri_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  BT0     │  Bt1     │     BT2  │  BT3     | CLEAR BT │   │KeepUpLaye│   F1     │   F2     │   F3     │   F4     │
-      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &bt BT_CLR     &trans   &kp F1     &kp F2    &kp F3      &kp F5
+        //│  BT0     │  Bt1     │     BT2  │  BT3     | CLEAR BT │   │KeepUpLaye│   F2     │   F3     │Calculator│   F5     │
+      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &bt BT_CLR     &trans   &kp F2     &kp F3    &kp C_AL_CALC   &kp F5
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│USB BLE TG│          │          │          │          │   │Calculator│ Prev Song│Play Pause│   F6     │   F7     │
-         &out OUT_TOG  &none     &none      &none        &none      &kp C_AL_CALC  &kp K_PREV  &kp K_PP   &kp F6   &kp F7  
+        //│USB BLE TG│          │          │          │          │   │   F1     │ Prev Song│Play Pause│   F6     │   F7     │
+         &out OUT_TOG  &none     &none      &none        &none          &kp F1   &kp K_PREV  &kp K_PP   &kp F6   &kp F7  
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ BtDiscon0| BtDiscon1│ BtDiscon2│ BtDiscon3│BOOTLOADER│   │BOOTLOADER│    F8    │   F9     │    F10   │   F12    │
  &bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bootloader   &bootloader  &kp F8    &kp F9     &kp F10   &kp 12
@@ -398,11 +398,11 @@
         copy_right_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  <       │  +       │	  {    │     }    │     $    │   │   -  _   │   6  ^   │    7     │   8      │    9     │
-            &kp LT   &kp PLUS      &kp LBRC   &kp RBRC  &kp DLLR      &kp MINUS   &kp N6    &kp N7      &kp N8    &kp N9   
+        //│  <       │    Q     │	  {    │     }    │     $    │   │   -  _   │   6  ^   │    7     │   8      │    9     │
+            &kp LT     &kp STAR    &kp LBRC   &kp RBRC  &kp DLLR      &kp MINUS   &kp N6    &kp N7      &kp N8    &kp N9   
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│   !      │ 	 :      │  (       │   )   D  │   &      │   │   *  Q   │   0      │  1       │   2      │  3       │
- &ht LGUI EXCL  &ht LALT COLON  &ht LCTRL LPAR  &r_par_D  &kp AMPS   &start_q  &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
+        //│   !      │ 	 :      │  (       │   )   D  │   &      │   │   +   Q  │   0      │  1       │   2      │  3       │
+&ht LGUI EXCL  &ht LALT COLON  &ht LCTRL LPAR  &r_par_D  &kp AMPS     &plus_q   &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│    >     │  |       │  [       │  ]       │  \       │   │    %     │    4     │   , ;    │   . =    │   5  -   │
            &kp GT    &kp PIPE    &kp LBKT  &kp RBKT    &kp BSLH         &kp PRCNT   &kp N4   &coma_semi  &dot_equal   &five_dash
