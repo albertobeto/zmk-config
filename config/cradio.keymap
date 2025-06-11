@@ -154,7 +154,7 @@
         combo_first_layer {
             timeout-ms = <100>;
             key-positions = <16 25>;
-            bindings = <MO_TO(1)>;
+            bindings = <MO_TO(0)>;
             require-prior-idle-ms = <50>;
         };
         // Second layer left hand
