@@ -131,12 +131,6 @@
             bindings = <&kp LS(ENTER)>;
             require-prior-idle-ms = <50>;
         };
-        combo_nav_left {
-            timeout-ms = <100>;
-            key-positions = <1 2 3>;
-            bindings = <MO_TO(2)>;
-            require-prior-idle-ms = <50>;
-        };
         combo_space_left {
             timeout-ms = <100>;
             key-positions = <11 12 13>;
@@ -154,6 +148,20 @@
             timeout-ms = <100>;
             key-positions = <18 19 31>;
             bindings = <&kp LS(SLASH)>;
+            require-prior-idle-ms = <50>;
+        };
+        // First layer right hand
+        combo_first_layer {
+            timeout-ms = <100>;
+            key-positions = <16 25>;
+            bindings = <MO_TO(1)>;
+            require-prior-idle-ms = <50>;
+        };
+        // Second layer left hand
+        combo_second_layer {
+            timeout-ms = <100>;
+            key-positions = <1 2 3>;
+            bindings = <MO_TO(2)>;
             require-prior-idle-ms = <50>;
         };
         combo_third_layer {
