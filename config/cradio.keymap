@@ -240,6 +240,26 @@
             bindings = <&kp N5>, <&kp MINUS>;
             mods = <(MOD_LSFT)>;
         };
+
+
+        three_double_quote: three_double_quote {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp N3>, <&kp DOUBLE_QUOTES>;
+            mods = <(MOD_LSFT)>;
+        };
+        
+        hta: hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <270>;
+            quick-tap-ms = <250>;
+            require-prior-idle-ms = <100>;
+            bindings = <&kp LGUI>, <&three_double_quote>;
+        };
+
+
         plus_q: plus_q {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -324,7 +344,7 @@
             &kp LT     &kp STAR    &kp LBRC   &kp RBRC  &kp DLLR      &kp MINUS   &kp N6    &kp N7      &kp N8    &kp N9   
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   !      │ 	 :      │  (       │   )   D  │   &      │   │   +   Q  │   0      │  1       │   2      │  3       │
-&ht LGUI EXCL  &ht LALT COLON  &ht LCTRL LPAR  &r_par_D  &kp AMPS     &plus_q   &kp N0  &ht LCTRL N1  &ht LALT N2  &ht LGUI N3
+&ht LGUI EXCL  &ht LALT COLON  &ht LCTRL LPAR  &r_par_D  &kp AMPS     &plus_q   &kp N0  &ht LCTRL N1  &ht LALT N2  &ht2
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│    >     │  |       │  [       │  ]       │  \       │   │    %     │    4     │   , ;    │   . =    │   5  -   │
            &kp GT    &kp PIPE    &kp LBKT  &kp RBKT    &kp BSLH        &kp PRCNT    &kp N4   &coma_semi  &dot_equal   &five_dash
