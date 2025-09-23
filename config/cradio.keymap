@@ -249,7 +249,7 @@
             mods = <(MOD_LSFT)>;
         };
         
-        hta: hold_tap {
+        hta: hta {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
