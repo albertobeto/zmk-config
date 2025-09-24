@@ -256,7 +256,7 @@
             tapping-term-ms = <270>;
             quick-tap-ms = <250>;
             require-prior-idle-ms = <100>;
-            bindings = <&kp LGUI>, <&three_double_quote>;
+            bindings = <&kp>, <&three_double_quote>;
         };
 
 
@@ -344,7 +344,7 @@
             &kp LT     &kp STAR    &kp LBRC   &kp RBRC  &kp DLLR      &kp MINUS   &kp N6    &kp N7      &kp N8    &kp N9   
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   !      │ 	 :      │  (       │   )   D  │   &      │   │   +   Q  │   0      │  1       │   2      │  3       │
-&ht LGUI EXCL  &ht LALT COLON  &ht LCTRL LPAR  &r_par_D  &kp AMPS     &plus_q   &kp N0  &ht LCTRL N1  &ht LALT N2  &hta
+&ht LGUI EXCL  &ht LALT COLON  &ht LCTRL LPAR  &r_par_D  &kp AMPS     &plus_q   &kp N0  &ht LCTRL N1  &ht LALT N2  &hta LGUI
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│    >     │  |       │  [       │  ]       │  \       │   │    %     │    4     │   , ;    │   . =    │   5  -   │
            &kp GT    &kp PIPE    &kp LBKT  &kp RBKT    &kp BSLH        &kp PRCNT    &kp N4   &coma_semi  &dot_equal   &five_dash
@@ -430,7 +430,7 @@
             &kp LT     &kp STAR    &kp LBRC   &kp RBRC  &kp DLLR      &kp MINUS   &kp N6    &kp N7      &kp N8    &kp N9   
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   !      │ 	 :      │  (       │   )   D  │   &      │   │   +   Q  │   0      │  1       │   2      │  3       │
-&ht LGUI EXCL  &ht LALT COLON  &ht LCTRL LPAR  &r_par_D  &kp AMPS     &plus_q   &kp N0  &ht LCTRL N1  &ht LALT N2  &hta
+&ht LGUI EXCL  &ht LALT COLON  &ht LCTRL LPAR  &r_par_D  &kp AMPS     &plus_q   &kp N0  &ht LCTRL N1  &ht LALT N2  &hta LGUI
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│    >     │  |       │  [       │  ]       │  \       │   │    %     │    4     │   , ;    │   . =    │   5  -   │
            &kp GT    &kp PIPE    &kp LBKT  &kp RBKT    &kp BSLH         &kp PRCNT   &kp N4   &coma_semi  &dot_equal   &five_dash
