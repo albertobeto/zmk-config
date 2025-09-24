@@ -245,7 +245,7 @@
         three_double_quote: three_double_quote {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp N3>, <&kp DOUBLE_QUOTES>;
+            bindings = <&kp N3>, <&kp DQT>;
             mods = <(MOD_LSFT)>;
         };
         
