@@ -1,4 +1,4 @@
-name: alberto_zmk_config
+name: zmk_config
 build:
   settings:
     board_root: .
