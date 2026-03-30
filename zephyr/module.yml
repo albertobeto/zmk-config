@@ -5,3 +5,4 @@ build:
     board_root: .
     dts_root: .
     snippet_root: .
+    shield_root: .   # Add this line if it wasn't there
