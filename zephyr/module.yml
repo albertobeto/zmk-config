@@ -2,4 +2,3 @@ name: zmk_config
 build:
   settings:
     board_root: .
-    shield_root: .   # Add this line if it wasn't there
