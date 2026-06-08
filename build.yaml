@@ -19,8 +19,8 @@
 ---
 include:
   - board: nice_nano//zmk
-    shield: corne_left
+    shield: my_cradio_left
   - board: nice_nano//zmk
-    shield: corne_right
+    shield: my_cradio_right
   - board: nice_nano//zmk
     shield: settings_reset
