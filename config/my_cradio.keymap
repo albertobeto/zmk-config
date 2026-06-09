@@ -209,19 +209,11 @@
             bindings = <&mo 3>, <&to 3>;
         };
 
-        // trigger caps on double tap
-        td_caps: tap_dance_caps {
+        shift_caps: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <400>;
             bindings = <&kp LSHIFT>, <&kp CAPS>;
-        };
-        // shift on direct press, and caps on hold
-        shift_caps: shift_caps_ht {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp LSHIFT>, <&td_caps>;
         };
 
         coma_semi: coma_semi {
