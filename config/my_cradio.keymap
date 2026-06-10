@@ -426,8 +426,8 @@
         copy_right_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  <       │    *     │	  {    │     }    │     $    │   │   -  _   │   6  ^   │    7     │   8      │    9     │
-            &kp LT     &kp STAR    &kp LBRC   &kp RBRC  &kp DLLR      &kp MINUS   &kp N6    &kp N7      &kp N8    &kp N9   
+        //│  <       │    *     │	  {    │     }    │     $    │   │    :     │   6  ^   │    7     │   8      │    9     │
+            &kp LT     &kp STAR    &kp LBRC   &kp RBRC  &kp DLLR      &kp COLON   &kp N6    &kp N7      &kp N8    &kp N9   
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   !      │ 	 :      │  (       │   )   D  │   &      │   │   +   Q  │   0      │  1       │   2      │  3       │
 &ht LGUI EXCL  &ht LALT COLON  &ht LCTRL LPAR  &r_par_D  &kp AMPS     &plus_q   &kp N0  &ht LCTRL N1  &ht LALT N2  &hta LGUI 0
