@@ -120,13 +120,13 @@
             require-prior-idle-ms = <50>;
         };
         combo_shift_enter {
-            timeout-ms = <100>;
+            timeout-ms = <50>;
             key-positions = <17 18 31>;
             bindings = <&kp LS(ENTER)>;
             require-prior-idle-ms = <50>;
         };
         combo_shift_enter_2 {
-            timeout-ms = <100>;
+            timeout-ms = <50>;
             key-positions = <21 22 23 31>;
             bindings = <&kp LS(ENTER)>;
             require-prior-idle-ms = <50>;
