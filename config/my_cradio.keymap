@@ -80,18 +80,18 @@
             require-prior-idle-ms = <50>;
         };
         combo_backspace {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <12 13>;
             bindings = <&kp BSPC>;
             require-prior-idle-ms = <50>;
         };
-        combo_backspace_3 {
-            timeout-ms = <50>;
+        combo_backspace_2 {
+            timeout-ms = <30>;
             key-positions = <15 16>;
             bindings = <&kp BSPC>;
         };
         combo_delete {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <16 17>;
             bindings = <&kp DEL>;
             require-prior-idle-ms = <50>;
@@ -103,7 +103,7 @@
             require-prior-idle-ms = <50>;
         };
         combo_enter {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <17 18>;
             bindings = <&kp ENTER>;
             require-prior-idle-ms = <50>;
@@ -115,7 +115,7 @@
             require-prior-idle-ms = <50>;
         };
         combo_shift_enter {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <17 18 31>;
             bindings = <&kp LS(ENTER)>;
             require-prior-idle-ms = <50>;
@@ -127,27 +127,27 @@
             require-prior-idle-ms = <50>;
         };
         combo_space_left {
-            timeout-ms = <100>;
+            timeout-ms = <50>;
             key-positions = <11 12 13>;
             bindings = <&kp SPACE>;
             require-prior-idle-ms = <50>;
         };
         combo_slash {
-            timeout-ms = <70>;
+            timeout-ms = <50>;
             key-positions = <18 19>;
             bindings = <&kp SLASH>;
             require-prior-idle-ms = <50>;
         };
         // Needed in case I press shift too fast.
         combo_question {
-            timeout-ms = <100>;
+            timeout-ms = <50>;
             key-positions = <18 19 31>;
             bindings = <&kp LS(SLASH)>;
             require-prior-idle-ms = <50>;
         };
         // First layer right hand
         combo_first_layer {
-            timeout-ms = <100>;
+            timeout-ms = <50>;
             key-positions = <16 25>;
             bindings = <MO_TO(0)>;
             require-prior-idle-ms = <50>;
@@ -165,12 +165,12 @@
             bindings = <&mo_to 6 1>;
         };
         combo_third_layer_2 {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <11 12>;
             bindings = <&mo_to 6 1>;
         };
         combo_third_layer_3 {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <16 18>;
             bindings = <&mo_to 6 1>;
         };
