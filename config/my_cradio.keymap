@@ -46,35 +46,35 @@
     combos {
         compatible = "zmk,combos";
         combo_undo {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <20 21>;
             bindings = <&kp LC(Z)>;
             require-prior-idle-ms = <50>;
         };
         combo_copy {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <21 22>;
             bindings = <&kp LC(C)>;
             require-prior-idle-ms = <50>;
         };
         combo_shift_copy {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <21 22 31>;
             bindings = <&kp LS(LC(C))>;
         };
         combo_paste {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <22 23>;
             bindings = <&kp LC(V)>;
             require-prior-idle-ms = <50>;
         };
         combo_shift_paste {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <22 23 31>;
             bindings = <&kp LS(LC(V))>;
         };
         combo_cut {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <23 24>;
             bindings = <&kp LC(X)>;
             require-prior-idle-ms = <50>;
@@ -84,11 +84,6 @@
             key-positions = <12 13>;
             bindings = <&kp BSPC>;
             require-prior-idle-ms = <50>;
-        };
-        combo_backspace_2 {
-            timeout-ms = <50>;
-            key-positions = <13 14>;
-            bindings = <&kp BSPC>;
         };
         combo_backspace_3 {
             timeout-ms = <50>;
@@ -114,7 +109,7 @@
             require-prior-idle-ms = <50>;
         };
         combo_enter_2 {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <21 22 23>;
             bindings = <&kp ENTER>;
             require-prior-idle-ms = <50>;
@@ -126,7 +121,7 @@
             require-prior-idle-ms = <50>;
         };
         combo_shift_enter_2 {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <21 22 23 31>;
             bindings = <&kp LS(ENTER)>;
             require-prior-idle-ms = <50>;
