@@ -115,7 +115,7 @@
             require-prior-idle-ms = <50>;
         };
         combo_shift_enter {
-            timeout-ms = <30>;
+            timeout-ms = <50>;
             key-positions = <17 18 31>;
             bindings = <&kp LS(ENTER)>;
             require-prior-idle-ms = <50>;
@@ -154,7 +154,7 @@
         };
         // Second layer left hand
         combo_second_layer {
-            timeout-ms = <100>;
+            timeout-ms = <50>;
             key-positions = <1 2 3>;
             bindings = <MO_TO(2)>;
             require-prior-idle-ms = <50>;
