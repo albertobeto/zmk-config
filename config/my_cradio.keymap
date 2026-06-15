@@ -159,6 +159,12 @@
             bindings = <MO_TO(2)>;
             require-prior-idle-ms = <50>;
         };
+        combo_second_layer_2 {
+            timeout-ms = <30>;
+            key-positions = <21 23>;
+            bindings = <MO_TO(2)>;
+            require-prior-idle-ms = <50>;
+        };
         combo_third_layer {
             timeout-ms = <1000>;
             key-positions = <32 33>;
