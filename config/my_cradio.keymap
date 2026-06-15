@@ -152,7 +152,7 @@
             bindings = <MO_TO(0)>;
             require-prior-idle-ms = <50>;
         };
-        // Second layer left hand
+        // Second layer left hand, nav layer
         combo_second_layer {
             timeout-ms = <50>;
             key-positions = <1 2 3>;
