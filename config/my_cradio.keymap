@@ -361,7 +361,8 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , ;      │ . =      │ _  -  /  │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_semi  &dot_equal    &under_dash 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                 MO_TO(0)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   MO_TO(2)       &kp B   &kp W   &kp P
+        //                         MO_TO(0)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   MO_TO(2)       &kp B   &kp W   &kp P
+                                 &shift_caps  MO_TO(0)     MO_TO(0)     MO_TO(2)    MO_TO(2)  &kp SPACE      &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -378,7 +379,8 @@
         //│    >     │  |       │  [       │  ]       │  \       │   │    %     │    4     │   , ;    │   . =    │   5  -   │
            &kp GT    &kp PIPE    &kp LBKT  &kp RBKT    &kp BSLH        &kp PRCNT    &kp N4   &coma_semi  &dot_equal   &five_dash
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                               &mo_to 5 0   &shift_caps  &mo_to 5 0     MO_TO(2)   &kp SPACE   MO_TO(2)         &kp B   &kp W   &kp P
+        //                       &mo_to 5 0   &shift_caps  &mo_to 5 0     MO_TO(2)   &kp SPACE   MO_TO(2)         &kp B   &kp W   &kp P
+                               &shift_caps  &mo_to 5 0   &mo_to 5 0     MO_TO(2)    MO_TO(2)   &kp SPACE        &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -395,7 +397,8 @@
         //│  PgDwn   │ MousBtn4 │ MousBtn5 │Mouse Clck│VolDwnNext│   │ BrightDwn│Mouse Left| Mouse Up │MouseRight|Mouse Down|
     &kp PG_DN  &mkp MB4  &mkp MB5  &mkp LCLK  &vol_dwn_next    &kp C_BRI_DN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                            &mo_to 5 0    &shift_caps  &mo_to 5 0     &nav_td_mt   &kp SPACE   MO_TO(2)         &kp B   &kp W   &kp P
+        //                    &mo_to 5 0    &shift_caps  &mo_to 5 0     &nav_td_mt   &kp SPACE  &nav_td_mt         &kp B   &kp W   &kp P
+                            &shift_caps  &mo_to 5 0     &mo_to 5 0     &nav_td_mt    &nav_td_mt    &kp SPACE       &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -412,7 +415,8 @@
         //│  PgDwn   │ MousBtn4 │ MousBtn5 │Mouse Clck│VolDwnNext│   │ BrightDwn│Mouse Left| Mouse Up │MouseRight|Mouse Down|
     &kp PG_DN  &mkp MB4  &mkp MB5  &mkp LCLK  &vol_dwn_next    &kp C_BRI_DN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                            &mo_to 5 0    &shift_caps  &mo_to 5 0      MO_TO(2)   &kp SPACE   MO_TO(2)         &kp B   &kp W   &kp P
+        //                    &mo_to 5 0    &shift_caps  &mo_to 5 0      MO_TO(2)   &kp SPACE   MO_TO(2)         &kp B   &kp W   &kp P
+                               &shift_caps  &mo_to 5 0  &mo_to 5 0      MO_TO(2)   MO_TO(2)    &kp SPACE          &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -447,7 +451,8 @@
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_semi  &dot_equal    &under_dash 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         // ********************* IF YOU UPDATE THE KEYMAP, DON'T CHANGE THE THUMBS. ************************
-                                 MO_TO(0)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   MO_TO(2)   &none     &none    &none  
+        //                         MO_TO(0)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   MO_TO(2)   &none     &none    &none  
+                                   &shift_caps   MO_TO(0)  MO_TO(0)     MO_TO(2)    MO_TO(2)  &kp SPACE   &none     &none    &none  
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -465,7 +470,8 @@
            &kp GT    &kp PIPE    &kp LBKT  &kp RBKT    &kp BSLH         &kp PRCNT   &kp N4   &coma_semi  &dot_equal   &five_dash
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         // ********************* IF YOU UPDATE THE KEYMAP, DON'T CHANGE THE THUMBS. ************************
-                                 MO_TO(0)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   MO_TO(2)  &none     &none    &none  
+        //                        MO_TO(0)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   MO_TO(2)  &none     &none    &none  
+                                   &shift_caps  MO_TO(0) MO_TO(0)     MO_TO(2)      MO_TO(2) &kp SPACE &none     &none    &none  
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
