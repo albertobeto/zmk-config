@@ -30,14 +30,14 @@
 
 &mmv_input_listener {
   fast {
-    layers = <3 10>;
+    layers = <3>;
     input-processors = <&zip_xy_scaler 5 2>;
   };
 };
 
 &msc_input_listener {
   fast {
-    layers = <3 10>;
+    layers = <3>;
     input-processors = <&zip_scroll_scaler 5 1>;
   };
 };
@@ -173,101 +173,40 @@
             bindings = <&kp LS(SLASH)>;
             require-prior-idle-ms = <50>;
         };
-
-        // --- Original Layer Switches (Restricted to Base Set) ---
+        // First layer right hand
         combo_first_layer {
             timeout-ms = <50>;
             key-positions = <16 25>;
             bindings = <MO_TO(0)>;
             require-prior-idle-ms = <50>;
-            layers = <0 1 2 3 4 5 6>;
         };
+        // Second layer left hand, nav layer
         combo_second_layer {
             timeout-ms = <50>;
             key-positions = <1 2 3>;
             bindings = <MO_TO(2)>;
             require-prior-idle-ms = <50>;
-            layers = <0 1 2 3 4 5 6>;
         };
         combo_second_layer_2 {
             timeout-ms = <30>;
             key-positions = <21 23>;
             bindings = <MO_TO(2)>;
             require-prior-idle-ms = <50>;
-            layers = <0 1 2 3 4 5 6>;
         };
         combo_third_layer {
             timeout-ms = <1000>;
             key-positions = <32 33>;
             bindings = <&mo_to 6 1>;
-            layers = <0 1 2 3 4 5 6>;
         };
         combo_third_layer_2 {
             timeout-ms = <30>;
             key-positions = <11 12>;
             bindings = <&mo_to 6 1>;
-            layers = <0 1 2 3 4 5 6>;
         };
         combo_third_layer_3 {
             timeout-ms = <30>;
             key-positions = <16 18>;
             bindings = <&mo_to 6 1>;
-            layers = <0 1 2 3 4 5 6>;
-        };
-
-        // --- Shifted Layer Switches (Restricted to Shifted Set) ---
-        combo_first_layer_shifted {
-            timeout-ms = <50>;
-            key-positions = <16 25>;
-            bindings = <MO_TO(7)>;
-            require-prior-idle-ms = <50>;
-            layers = <7 8 9 10 11 12 13>;
-        };
-        combo_second_layer_shifted {
-            timeout-ms = <50>;
-            key-positions = <1 2 3>;
-            bindings = <MO_TO(9)>;
-            require-prior-idle-ms = <50>;
-            layers = <7 8 9 10 11 12 13>;
-        };
-        combo_second_layer_2_shifted {
-            timeout-ms = <30>;
-            key-positions = <21 23>;
-            bindings = <MO_TO(9)>;
-            require-prior-idle-ms = <50>;
-            layers = <7 8 9 10 11 12 13>;
-        };
-        combo_third_layer_shifted {
-            timeout-ms = <1000>;
-            key-positions = <31 34>; // Adjusted for outer thumbs
-            bindings = <&mo_to 13 8>;
-            layers = <7 8 9 10 11 12 13>;
-        };
-        combo_third_layer_2_shifted {
-            timeout-ms = <30>;
-            key-positions = <11 12>;
-            bindings = <&mo_to 13 8>;
-            layers = <7 8 9 10 11 12 13>;
-        };
-        combo_third_layer_3_shifted {
-            timeout-ms = <30>;
-            key-positions = <16 18>;
-            bindings = <&mo_to 13 8>;
-            layers = <7 8 9 10 11 12 13>;
-        };
-
-        // --- Thumb Cluster Layout Selectors ---
-        combo_thumbs_default {
-            timeout-ms = <50>;
-            key-positions = <0 1 2 3>;
-            bindings = <&to 0>;
-            require-prior-idle-ms = <50>;
-        };
-        combo_thumbs_shifted {
-            timeout-ms = <50>;
-            key-positions = <6 7 8 9>;
-            bindings = <&to 7>;
-            require-prior-idle-ms = <50>;
         };
     };
 
@@ -297,13 +236,6 @@
             #binding-cells = <0>;
             tapping-term-ms = <700>;
             bindings = <&mo 3>, <&to 3>;
-        };
-
-        shifted_nav_td_mt: shifted_tap_dance_mod_tap {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <700>;
-            bindings = <&mo 10>, <&to 10>;
         };
 
         shift_caps: tap_dance_0 {
@@ -429,7 +361,8 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , ;      │ . =      │ _  -  /  │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_semi  &dot_equal    &under_dash 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                 MO_TO(0)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   MO_TO(2)       &kp B   &kp W   &kp P
+        //                         MO_TO(0)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   MO_TO(2)       &kp B   &kp W   &kp P
+                                 &shift_caps  MO_TO(0)     MO_TO(0)     MO_TO(2)    MO_TO(2)  &kp SPACE      &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -437,16 +370,17 @@
         right_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  <       │    * │	  {    │     }    │     $    │   │   :      │  6  ^   │   7      │   8      │    9     │
+        //│  <       │    *     │	  {    │     }    │     $    │   │   :      │   6  ^   │    7     │   8      │    9     │
             &kp LT     &kp STAR    &kp LBRC   &kp RBRC  &kp DLLR      &kp COLON   &kp N6    &kp N7      &kp N8    &kp N9   
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   !      │ 	 :      │  (       │   )   D  │   &      │   │   +   Q  │   0      │  1       │   2      │  3       │
-&ht LGUI EXCL  &ht LALT COLON  &ht LCTRL LPAR  &r_par_D  &kp AMPS      &plus_q   &kp N0  &ht LCTRL N1  &ht LALT N2  &hta LGUI 0
+&ht LGUI EXCL  &ht LALT COLON  &ht LCTRL LPAR  &r_par_D  &kp AMPS     &plus_q   &kp N0  &ht LCTRL N1  &ht LALT N2  &hta LGUI 0
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│    >     │  |       │  [       │  ]       │  \       │   │    %     │   4      │   , ;    │   . =    │   5  -   │
+        //│    >     │  |       │  [       │  ]       │  \       │   │    %     │    4     │   , ;    │   . =    │   5  -   │
            &kp GT    &kp PIPE    &kp LBKT  &kp RBKT    &kp BSLH        &kp PRCNT    &kp N4   &coma_semi  &dot_equal   &five_dash
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                               &mo_to 5 0   &shift_caps  &mo_to 5 0     MO_TO(2)   &kp SPACE   MO_TO(2)         &kp B   &kp W   &kp P
+        //                       &mo_to 5 0   &shift_caps  &mo_to 5 0     MO_TO(2)   &kp SPACE   MO_TO(2)         &kp B   &kp W   &kp P
+                               &shift_caps  &mo_to 5 0   &mo_to 5 0     MO_TO(2)    MO_TO(2)   &kp SPACE        &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -463,7 +397,8 @@
         //│  PgDwn   │ MousBtn4 │ MousBtn5 │Mouse Clck│VolDwnNext│   │ BrightDwn│Mouse Left| Mouse Up │MouseRight|Mouse Down|
     &kp PG_DN  &mkp MB4  &mkp MB5  &mkp LCLK  &vol_dwn_next    &kp C_BRI_DN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                            &mo_to 5 0    &shift_caps  &mo_to 5 0     &nav_td_mt   &kp SPACE   MO_TO(2)         &kp B   &kp W   &kp P
+        //                    &mo_to 5 0    &shift_caps  &mo_to 5 0     &nav_td_mt   &kp SPACE  &nav_td_mt         &kp B   &kp W   &kp P
+                            &shift_caps  &mo_to 5 0     &mo_to 5 0     &nav_td_mt    &nav_td_mt    &kp SPACE       &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -480,7 +415,8 @@
         //│  PgDwn   │ MousBtn4 │ MousBtn5 │Mouse Clck│VolDwnNext│   │ BrightDwn│Mouse Left| Mouse Up │MouseRight|Mouse Down|
     &kp PG_DN  &mkp MB4  &mkp MB5  &mkp LCLK  &vol_dwn_next    &kp C_BRI_DN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                            &mo_to 5 0    &shift_caps  &mo_to 5 0      MO_TO(2)   &kp SPACE   MO_TO(2)         &kp B   &kp W   &kp P
+        //                    &mo_to 5 0    &shift_caps  &mo_to 5 0      MO_TO(2)   &kp SPACE   MO_TO(2)         &kp B   &kp W   &kp P
+                               &shift_caps  &mo_to 5 0  &mo_to 5 0      MO_TO(2)   MO_TO(2)    &kp SPACE          &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -515,7 +451,8 @@
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_semi  &dot_equal    &under_dash 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         // ********************* IF YOU UPDATE THE KEYMAP, DON'T CHANGE THE THUMBS. ************************
-                                 MO_TO(0)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   MO_TO(2)   &none     &none    &none  
+        //                         MO_TO(0)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   MO_TO(2)   &none     &none    &none  
+                                   &shift_caps   MO_TO(0)  MO_TO(0)     MO_TO(2)    MO_TO(2)  &kp SPACE   &none     &none    &none  
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -523,88 +460,21 @@
         copy_right_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  <       │    * │	  {    │     }    │     $    │   │    :     │  6  ^   │    7     │   8      │    9     │
+        //│  <       │    *     │	  {    │     }    │     $    │   │    :     │   6  ^   │    7     │   8      │    9     │
             &kp LT     &kp STAR    &kp LBRC   &kp RBRC  &kp DLLR      &kp COLON   &kp N6    &kp N7      &kp N8    &kp N9   
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   !      │ 	 :      │  (       │   )   D  │   &      │   │   +   Q  │   0      │  1       │   2      │  3       │
-&ht LGUI EXCL  &ht LALT COLON  &ht LCTRL LPAR  &r_par_D  &kp AMPS      &plus_q   &kp N0  &ht LCTRL N1  &ht LALT N2  &hta LGUI 0
+&ht LGUI EXCL  &ht LALT COLON  &ht LCTRL LPAR  &r_par_D  &kp AMPS     &plus_q   &kp N0  &ht LCTRL N1  &ht LALT N2  &hta LGUI 0
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│    >     │  |       │  [       │  ]       │  \       │   │    %     │   4      │   , ;    │   . =    │   5  -   │
+        //│    >     │  |       │  [       │  ]       │  \       │   │    %     │    4     │   , ;    │   . =    │   5  -   │
            &kp GT    &kp PIPE    &kp LBKT  &kp RBKT    &kp BSLH         &kp PRCNT   &kp N4   &coma_semi  &dot_equal   &five_dash
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         // ********************* IF YOU UPDATE THE KEYMAP, DON'T CHANGE THE THUMBS. ************************
-                                 MO_TO(0)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   MO_TO(2)  &none     &none    &none  
+        //                        MO_TO(0)   &shift_caps  MO_TO(0)     MO_TO(2)   &kp SPACE   MO_TO(2)  &none     &none    &none  
+                                   &shift_caps  MO_TO(0) MO_TO(0)     MO_TO(2)      MO_TO(2) &kp SPACE &none     &none    &none  
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-            >;
-        };
-
-        // ==================================================================================================
-        // === SHIFTED THUMBS PARALLEL LAYERS (THUMBS ASSIGNED TO 30, 31 AND 34, 35) ========================
-        // ==================================================================================================
-
-        shifted_default_layer {
-            bindings = <
-            &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
-          &ht LGUI A  &ht LALT S  &ht LCTRL D   &kp F      &kp G          &kp H     &kp J  &ht LCTRL K  &ht LALT L   &ht LGUI SQT 
-            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_semi  &dot_equal    &under_dash 
-                     &shift_caps  MO_TO(7)   &none      &none     MO_TO(9)   &kp SPACE       &kp B   &kp W   &kp P
-            >;
-        };
-
-        shifted_right_layer {
-            bindings = <
-            &kp LT     &kp STAR    &kp LBRC   &kp RBRC  &kp DLLR      &kp COLON   &kp N6    &kp N7      &kp N8    &kp N9   
-&ht LGUI EXCL  &ht LALT COLON  &ht LCTRL LPAR  &r_par_D  &kp AMPS      &plus_q   &kp N0  &ht LCTRL N1  &ht LALT N2  &hta LGUI 0
-           &kp GT    &kp PIPE    &kp LBKT  &kp RBKT    &kp BSLH        &kp PRCNT    &kp N4   &coma_semi  &dot_equal   &five_dash
-                               &shift_caps  &mo_to 12 7 &none      &none     MO_TO(9)   &kp SPACE         &kp B   &kp W   &kp P
-            >;
-        };
-
-        shifted_left_layer {
-            bindings = <
-         &kp PG_UP     &kp HOME   &kp UP   &kp END   &vol_up_prev     &lt 11 PSCRN &msc SCRL_UP  &msc SCRL_DOWN  &at_next_song  &f4_f11 
-&ht LGUI TAB  &ht LALT LEFT  &ht LCTRL DOWN  &kp RIGHT  &mute_play_pause  &kp C_BRI_UP  &mouse_click_LR  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
-    &kp PG_DN  &mkp MB4  &mkp MB5  &mkp LCLK  &vol_dwn_next    &kp C_BRI_DN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
-                            &shift_caps  &mo_to 12 7 &none      &none     &shifted_nav_td_mt &kp SPACE         &kp B   &kp W   &kp P
-            >;
-        };
-        
-        shifted_copy_left_layer {
-            bindings = <
-         &kp PG_UP     &kp HOME   &kp UP   &kp END   &vol_up_prev     &lt 11 PSCRN &msc SCRL_UP  &msc SCRL_DOWN  &at_next_song  &f4_f11 
-&ht LGUI TAB  &ht LALT LEFT  &ht LCTRL DOWN  &kp RIGHT  &mute_play_pause  &kp C_BRI_UP  &mouse_click_LR  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
-    &kp PG_DN  &mkp MB4  &mkp MB5  &mkp LCLK  &vol_dwn_next    &kp C_BRI_DN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
-                            &shift_caps  &mo_to 12 7 &none      &none     MO_TO(9)   &kp SPACE         &kp B   &kp W   &kp P
-            >;
-        };
-
-        shifted_tri_layer {
-            bindings = <
-      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &bt BT_CLR     &trans   &kp F2     &kp F3    &kp C_AL_CALC   &kp F5
-  &ht LGUI TAB  &ht LALT LEFT  &ht LCTRL DOWN  &none  &out OUT_TOG      &kp F1   &kp K_PREV  &kp K_PP   &kp F6   &kp F7  
- &bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bootloader   &bootloader  &kp F8    &kp F9     &kp F10   &kp F12
-                                    &none        &none     &none         &none     &none    &none   &none     &none    &none  
-            >;
-        };
-        
-        shifted_copy_default_layer {
-            bindings = <
-            &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
-          &ht LGUI A  &ht LALT S  &ht LCTRL D   &kp F      &kp G          &kp H     &kp J  &ht LCTRL K  &ht LALT L   &ht LGUI SQT 
-            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &coma_semi  &dot_equal    &under_dash 
-        // ********************* IF YOU UPDATE THE KEYMAP, DON'T CHANGE THE THUMBS. ************************
-                                 &shift_caps MO_TO(7)   &none      &none     MO_TO(9)   &kp SPACE   &none     &none    &none  
-            >;
-        };
-        
-        shifted_copy_right_layer {
-            bindings = <
-            &kp LT     &kp STAR    &kp LBRC   &kp RBRC  &kp DLLR      &kp COLON   &kp N6    &kp N7      &kp N8    &kp N9   
-&ht LGUI EXCL  &ht LALT COLON  &ht LCTRL LPAR  &r_par_D  &kp AMPS      &plus_q   &kp N0  &ht LCTRL N1  &ht LALT N2  &hta LGUI 0
-           &kp GT    &kp PIPE    &kp LBKT  &kp RBKT    &kp BSLH         &kp PRCNT   &kp N4   &coma_semi  &dot_equal   &five_dash
-        // ********************* IF YOU UPDATE THE KEYMAP, DON'T CHANGE THE THUMBS. ************************
-                                 &shift_caps MO_TO(7)   &none      &none     MO_TO(9)   &kp SPACE  &none     &none    &none  
             >;
         };
     };
 };
+
