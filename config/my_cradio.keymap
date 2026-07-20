@@ -170,6 +170,11 @@
             key-positions = <32 33>;
             bindings = <&mo_to 6 1>;
         };
+        combo_third_layer_broken_left_thumb {
+            timeout-ms = <1000>;
+            key-positions = <30 33>;
+            bindings = <&mo_to 6 1>;
+        };
         combo_third_layer_2 {
             timeout-ms = <30>;
             key-positions = <11 12>;
