@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 10    // default: 10
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 25    // default: 10
 
 #include <behaviors.dtsi>
 #include <input/processors.dtsi>
@@ -357,16 +357,15 @@
 
         left_layer {
             bindings = <
-            // &kp HOME &kp END 
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│   PgUp   │  ScrlUp  │    UP    │ ScrlDwn  │ VolUpPrev│   │Scrn/UpLyr│  ScrlUp  │ ScrlDwn  │  @  Next │ F4  F11  │
-         &kp PG_UP   &msc SCRL_UP  &kp UP  &msc SCRL_DOWN  &vol_up_prev    &lt 4 PSCRN  &msc SCRL_UP  &msc SCRL_DOWN  &at_next_song  &f4_f11 
+        //│   Home   │  ScrlUp  │    UP    │ ScrlDwn  │ VolUpPrev│   │Scrn/UpLyr│   PgUp   │  PgDwn   │  @  Next │ F4  F11  │
+     &kp HOME  &msc SCRL_UP  &kp UP  &msc SCRL_DOWN  &vol_up_prev    &lt 4 PSCRN  &kp PG_UP  &kp PG_DN  &at_next_song  &f4_f11 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  TAB     │  Left    │  Down    │  RIGHT   │ mute/Play│   |BrightUp  |Mouse Clck│    ESC   │    #     │   `  ~   │
 &ht LGUI TAB  &ht LALT LEFT  &ht LCTRL DOWN  &kp RIGHT  &mute_play_pause  &kp C_BRI_UP  &mouse_click_LR  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  PgDwn   │ MousBtn4 │ MousBtn5 │Mouse Clck│VolDwnNext│   │ BrightDwn│Mouse Left| Mouse Up │MouseRight|Mouse Down|
-    &kp PG_DN  &mkp MB4  &mkp MB5  &mkp LCLK  &vol_dwn_next    &kp C_BRI_DN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
+        //│   End    │ MousBtn4 │ MousBtn5 │Mouse Clck│VolDwnNext│   │ BrightDwn│Mouse Left| Mouse Up │MouseRight|Mouse Down|
+            &kp END  &mkp MB4  &mkp MB5  &mkp LCLK  &vol_dwn_next    &kp C_BRI_DN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                             &mo_to 5 0    &shift_caps  &mo_to 5 0     &nav_td_mt   &kp SPACE   MO_TO(2)         &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -376,14 +375,14 @@
         copy_left_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│   PgUp   │  ScrlUp  │    UP    │ ScrlDwn  │ VolUpPrev│   │Scrn/UpLyr│  ScrlUp  │ ScrlDwn  │  @  Next │ F4  F11  │
-         &kp PG_UP   &msc SCRL_UP  &kp UP  &msc SCRL_DOWN  &vol_up_prev    &lt 4 PSCRN  &msc SCRL_UP  &msc SCRL_DOWN  &at_next_song  &f4_f11 
+        //│   Home   │  ScrlUp  │    UP    │ ScrlDwn  │ VolUpPrev│   │Scrn/UpLyr│   PgUp   │  PgDwn   │  @  Next │ F4  F11  │
+     &kp HOME  &msc SCRL_UP  &kp UP  &msc SCRL_DOWN  &vol_up_prev    &lt 4 PSCRN  &kp PG_UP  &kp PG_DN  &at_next_song  &f4_f11 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  TAB     │  Left    │  Down    │  RIGHT   │ mute/Play│   |BrightUp  |Mouse Clck│    ESC   │    #     │   `  ~   │
 &ht LGUI TAB  &ht LALT LEFT  &ht LCTRL DOWN  &kp RIGHT  &mute_play_pause  &kp C_BRI_UP  &mouse_click_LR  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  PgDwn   │ MousBtn4 │ MousBtn5 │Mouse Clck│VolDwnNext│   │ BrightDwn│Mouse Left| Mouse Up │MouseRight|Mouse Down|
-    &kp PG_DN  &mkp MB4  &mkp MB5  &mkp LCLK  &vol_dwn_next    &kp C_BRI_DN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
+        //│   End    │ MousBtn4 │ MousBtn5 │Mouse Clck│VolDwnNext│   │ BrightDwn│Mouse Left| Mouse Up │MouseRight|Mouse Down|
+            &kp END  &mkp MB4  &mkp MB5  &mkp LCLK  &vol_dwn_next    &kp C_BRI_DN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                             &mo_to 5 0    &shift_caps  &mo_to 5 0      MO_TO(2)   &kp SPACE   MO_TO(2)         &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
