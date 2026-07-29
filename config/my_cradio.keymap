@@ -24,7 +24,7 @@
 
 &msc {
   acceleration-exponent = <1>;          // 0
-  time-to-max-speed-ms = <300>;         // 300
+  time-to-max-speed-ms = <1000>;         // 300
   delay-ms = <0>;                       // 0
 };
 
@@ -359,7 +359,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ MousBtn5 │  ScrlUp  │    UP    │ ScrlDwn  │ VolUpPrev│   │Scrn/UpLyr│   PgUp   │  PgDwn   │  @  Next │ F4  F11  │
-     &mkp MB5  &msc SCRL_UP  &kp UP  &msc SCRL_DOWN  &vol_up_prev    &lt 4 PSCRN  &kp PG_UP  &kp PG_DN  &at_next_song  &f4_f11 
+     &mkp MB5  &msc SCRL_UP(10)  &kp UP  &msc SCRL_DOWN(10)  &vol_up_prev    &lt 4 PSCRN  &kp PG_UP  &kp PG_DN  &at_next_song  &f4_f11 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  TAB     │  Left    │  Down    │  RIGHT   │ mute/Play│   |BrightUp  |Mouse Clck│    ESC   │    #     │   `  ~   │
 &ht LGUI TAB  &ht LALT LEFT  &ht LCTRL DOWN  &kp RIGHT  &mute_play_pause  &kp C_BRI_UP  &mouse_click_LR  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
