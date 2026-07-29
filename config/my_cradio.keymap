@@ -24,7 +24,7 @@
 
 &msc {
   acceleration-exponent = <0>;          // 0
-  time-to-max-speed-ms = <0>;         // 300
+  time-to-max-speed-ms = <300>;         // 300
   delay-ms = <0>;                       // 0
 };
 
@@ -358,14 +358,14 @@
         left_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│   Home   │  ScrlUp  │    UP    │ ScrlDwn  │ VolUpPrev│   │Scrn/UpLyr│   PgUp   │  PgDwn   │  @  Next │ F4  F11  │
-     &kp HOME  &msc SCRL_UP  &kp UP  &msc SCRL_DOWN  &vol_up_prev    &lt 4 PSCRN  &kp PG_UP  &kp PG_DN  &at_next_song  &f4_f11 
+        //│ MousBtn5 │  ScrlUp  │    UP    │ ScrlDwn  │ VolUpPrev│   │Scrn/UpLyr│   PgUp   │  PgDwn   │  @  Next │ F4  F11  │
+     &mkp MB5  &msc SCRL_UP  &kp UP  &msc SCRL_DOWN  &vol_up_prev    &lt 4 PSCRN  &kp PG_UP  &kp PG_DN  &at_next_song  &f4_f11 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  TAB     │  Left    │  Down    │  RIGHT   │ mute/Play│   |BrightUp  |Mouse Clck│    ESC   │    #     │   `  ~   │
 &ht LGUI TAB  &ht LALT LEFT  &ht LCTRL DOWN  &kp RIGHT  &mute_play_pause  &kp C_BRI_UP  &mouse_click_LR  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│   End    │ MousBtn4 │ MousBtn5 │Mouse Clck│VolDwnNext│   │ BrightDwn│Mouse Left| Mouse Up │MouseRight|Mouse Down|
-            &kp END  &mkp MB4  &mkp MB5  &mkp LCLK  &vol_dwn_next    &kp C_BRI_DN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
+        //│ MousBtn4 │   Home   │Mouse Clck│   End    |VolDwnNext│   │ BrightDwn│Mouse Left| Mouse Up │MouseRight|Mouse Down|
+            &mkp MB4  &kp HOME  &mkp LCLK  &kp END  &vol_dwn_next    &kp C_BRI_DN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                             &mo_to 5 0    &shift_caps  &mo_to 5 0     &nav_td_mt   &kp SPACE   MO_TO(2)         &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -375,14 +375,14 @@
         copy_left_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│   Home   │  ScrlUp  │    UP    │ ScrlDwn  │ VolUpPrev│   │Scrn/UpLyr│   PgUp   │  PgDwn   │  @  Next │ F4  F11  │
-     &kp HOME  &msc SCRL_UP  &kp UP  &msc SCRL_DOWN  &vol_up_prev    &lt 4 PSCRN  &kp PG_UP  &kp PG_DN  &at_next_song  &f4_f11 
+        //│ MousBtn5 │  ScrlUp  │    UP    │ ScrlDwn  │ VolUpPrev│   │Scrn/UpLyr│   PgUp   │  PgDwn   │  @  Next │ F4  F11  │
+     &mkp MB5  &msc SCRL_UP  &kp UP  &msc SCRL_DOWN  &vol_up_prev    &lt 4 PSCRN  &kp PG_UP  &kp PG_DN  &at_next_song  &f4_f11 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  TAB     │  Left    │  Down    │  RIGHT   │ mute/Play│   |BrightUp  |Mouse Clck│    ESC   │    #     │   `  ~   │
 &ht LGUI TAB  &ht LALT LEFT  &ht LCTRL DOWN  &kp RIGHT  &mute_play_pause  &kp C_BRI_UP  &mouse_click_LR  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│   End    │ MousBtn4 │ MousBtn5 │Mouse Clck│VolDwnNext│   │ BrightDwn│Mouse Left| Mouse Up │MouseRight|Mouse Down|
-            &kp END  &mkp MB4  &mkp MB5  &mkp LCLK  &vol_dwn_next    &kp C_BRI_DN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
+        //│ MousBtn4 │   Home   │Mouse Clck│   End    |VolDwnNext│   │ BrightDwn│Mouse Left| Mouse Up │MouseRight|Mouse Down|
+            &mkp MB4  &kp HOME  &mkp LCLK  &kp END  &vol_dwn_next    &kp C_BRI_DN  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mmv MOVE_DOWN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                             &mo_to 5 0    &shift_caps  &mo_to 5 0      MO_TO(2)   &kp SPACE   MO_TO(2)         &kp B   &kp W   &kp P
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
