@@ -23,7 +23,7 @@
 };
 
 &msc {
-  acceleration-exponent = <0>;          // 0
+  acceleration-exponent = <1>;          // 0
   time-to-max-speed-ms = <1000>;         // 300
   delay-ms = <0>;                       // 0
 };
@@ -323,8 +323,8 @@
             x-input-code = <INPUT_REL_HWHEEL>;
             y-input-code = <INPUT_REL_WHEEL>;
             time-to-max-speed-ms = <2000>;
-            scroll-speed = <30>; // Higher number = faster scroll
             acceleration-exponent = <0>;
+            scale-multiplier = <30>;
         };
          // Create a custom fast scroll behavior
         scrl_faster: scrl_faster {
@@ -333,8 +333,8 @@
             x-input-code = <INPUT_REL_HWHEEL>;
             y-input-code = <INPUT_REL_WHEEL>;
             time-to-max-speed-ms = <2000>;
-            scroll-speed = <30>; // Higher number = faster scroll
             acceleration-exponent = <1>;
+            scale-multiplier = <30>;
         };
     };
 
