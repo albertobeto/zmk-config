@@ -320,6 +320,8 @@
         scrl_fast: scrl_fast {
             compatible = "zmk,behavior-input-two-axis";
             #binding-cells = <1>;
+            x-input-code = <INPUT_REL_HWHEEL>;
+            y-input-code = <INPUT_REL_WHEEL>;
             time-to-max-speed-ms = <2000>;
             scroll-speed = <30>; // Higher number = faster scroll
             acceleration-exponent = <0>;
@@ -328,6 +330,8 @@
         scrl_faster: scrl_faster {
             compatible = "zmk,behavior-input-two-axis";
             #binding-cells = <1>;
+            x-input-code = <INPUT_REL_HWHEEL>;
+            y-input-code = <INPUT_REL_WHEEL>;
             time-to-max-speed-ms = <2000>;
             scroll-speed = <30>; // Higher number = faster scroll
             acceleration-exponent = <1>;
