@@ -318,7 +318,7 @@
         };
          // Create a custom fast scroll behavior
         scrl_fast: scrl_fast {
-            compatible = "zmk,behavior-mouse-scroll";
+            compatible = "zmk,behavior-input-two-axis";
             #binding-cells = <1>;
             time-to-max-speed-ms = <2000>;
             scroll-speed = <30>; // Higher number = faster scroll
@@ -326,7 +326,7 @@
         };
          // Create a custom fast scroll behavior
         scrl_faster: scrl_faster {
-            compatible = "zmk,behavior-mouse-scroll";
+            compatible = "zmk,behavior-input-two-axis";
             #binding-cells = <1>;
             time-to-max-speed-ms = <2000>;
             scroll-speed = <30>; // Higher number = faster scroll
