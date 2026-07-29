@@ -322,7 +322,7 @@
             #binding-cells = <1>;
             time-to-max-speed-ms = <2000>;
             scroll-speed = <30>; // Higher number = faster scroll
-            acceleration-exponent = <0>
+            acceleration-exponent = <0>;
         };
          // Create a custom fast scroll behavior
         scrl_faster: scrl_faster {
@@ -330,7 +330,7 @@
             #binding-cells = <1>;
             time-to-max-speed-ms = <2000>;
             scroll-speed = <30>; // Higher number = faster scroll
-            acceleration-exponent = <1>
+            acceleration-exponent = <1>;
         };
     };
 
