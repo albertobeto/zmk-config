@@ -316,26 +316,6 @@
             bindings = <&mkp LCLK>, <&mkp RCLK>;
             mods = <(MOD_LSFT)>;
         };
-         // Create a custom fast scroll behavior
-        scrl_fast: scrl_fast {
-            compatible = "zmk,behavior-input-two-axis";
-            #binding-cells = <1>;
-            x-input-code = <INPUT_REL_HWHEEL>;
-            y-input-code = <INPUT_REL_WHEEL>;
-            time-to-max-speed-ms = <2000>;
-            acceleration-exponent = <0>;
-            scale-multiplier = <30>;
-        };
-         // Create a custom fast scroll behavior
-        scrl_faster: scrl_faster {
-            compatible = "zmk,behavior-input-two-axis";
-            #binding-cells = <1>;
-            x-input-code = <INPUT_REL_HWHEEL>;
-            y-input-code = <INPUT_REL_WHEEL>;
-            time-to-max-speed-ms = <2000>;
-            acceleration-exponent = <1>;
-            scale-multiplier = <30>;
-        };
     };
 
 
@@ -379,7 +359,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ MousBtn5 │  ScrlUp  │    UP    │ ScrlDwn  │ VolUpPrev│   │Scrn/UpLyr│   PgUp   │  PgDwn   │  @  Next │ F4  F11  │
-     &mkp MB5  &msc SCRL_UP  &kp UP  &msc SCRL_DOWN  &vol_up_prev    &lt 4 PSCRN  &scrl_fast SCRL_DOWN  &scrl_faster SCRL_DOWN &at_next_song  &f4_f11 
+     &mkp MB5  &msc SCRL_UP  &kp UP  &msc SCRL_DOWN  &vol_up_prev    &lt 4 PSCRN  &kp PG_UP  &kp PG_DN  &at_next_song  &f4_f11 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  TAB     │  Left    │  Down    │  RIGHT   │ mute/Play│   |BrightUp  |Mouse Clck│    ESC   │    #     │   `  ~   │
 &ht LGUI TAB  &ht LALT LEFT  &ht LCTRL DOWN  &kp RIGHT  &mute_play_pause  &kp C_BRI_UP  &mouse_click_LR  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
@@ -396,7 +376,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ MousBtn5 │  ScrlUp  │    UP    │ ScrlDwn  │ VolUpPrev│   │Scrn/UpLyr│   PgUp   │  PgDwn   │  @  Next │ F4  F11  │
-     &mkp MB5  &msc SCRL_UP  &kp UP  &msc SCRL_DOWN  &vol_up_prev    &lt 4 PSCRN  &scrl_fast SCRL_DOWN    &scrl_faster SCRL_DOWN  &at_next_song  &f4_f11 
+     &mkp MB5  &msc SCRL_UP  &kp UP  &msc SCRL_DOWN  &vol_up_prev    &lt 4 PSCRN  &kp PG_UP  &kp PG_DN  &at_next_song  &f4_f11 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  TAB     │  Left    │  Down    │  RIGHT   │ mute/Play│   |BrightUp  |Mouse Clck│    ESC   │    #     │   `  ~   │
 &ht LGUI TAB  &ht LALT LEFT  &ht LCTRL DOWN  &kp RIGHT  &mute_play_pause  &kp C_BRI_UP  &mouse_click_LR  &ht LCTRL ESC  &ht LALT HASH   &ht LGUI GRAVE
