@@ -38,8 +38,7 @@
 &msc_input_listener {
   fast {
     layers = <3>;
-    input-processors = <&zip_temp_layer 3 1000>, <&zip_scroll_scaler 5 1>;
-    //input-processors = <&zip_scroll_scaler 5 1>;
+    input-processors = <&zip_scroll_scaler 5 1>;
   };
 };
 
@@ -62,6 +61,7 @@
             timeout-ms = <30>;
             key-positions = <21 22 31>;
             bindings = <&kp LS(LC(C))>;
+            require-prior-idle-ms = <50>;
         };
         combo_paste {
             timeout-ms = <30>;
@@ -73,6 +73,7 @@
             timeout-ms = <30>;
             key-positions = <22 23 31>;
             bindings = <&kp LS(LC(V))>;
+            require-prior-idle-ms = <50>;
         };
         combo_cut {
             timeout-ms = <30>;
@@ -98,7 +99,7 @@
             require-prior-idle-ms = <50>;
         };
         combo_delete_2 {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <21 23>;
             bindings = <&kp DEL>;
             require-prior-idle-ms = <50>;
@@ -116,7 +117,7 @@
             require-prior-idle-ms = <50>;
         };
         combo_shift_enter {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <17 18 31>;
             bindings = <&kp LS(ENTER)>;
             require-prior-idle-ms = <50>;
@@ -128,27 +129,27 @@
             require-prior-idle-ms = <50>;
         };
         combo_space_left {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <11 12 13>;
             bindings = <&kp SPACE>;
             require-prior-idle-ms = <50>;
         };
         combo_slash {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <18 19>;
             bindings = <&kp SLASH>;
             require-prior-idle-ms = <50>;
         };
         // Needed in case I press shift too fast.
         combo_question {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <18 19 31>;
             bindings = <&kp LS(SLASH)>;
             require-prior-idle-ms = <50>;
         };
         // First layer right hand
         combo_first_layer {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <16 25>;
             bindings = <MO_TO(0)>;
             require-prior-idle-ms = <50>;
@@ -160,14 +161,16 @@
             bindings = <MO_TO(2)>;
             require-prior-idle-ms = <50>;
         };
+
+
         // Third layer for numbers and symbols
         combo_third_layer {
-            timeout-ms = <1000>;
+            timeout-ms = <30>;
             key-positions = <32 33>;
             bindings = <&mo_to 6 1>;
         };
         combo_third_layer_broken_left_thumb {
-            timeout-ms = <1000>;
+            timeout-ms = <30>;
             key-positions = <30 33>;
             bindings = <&mo_to 6 1>;
         };
@@ -180,6 +183,20 @@
             timeout-ms = <30>;
             key-positions = <16 18>;
             bindings = <&mo_to 6 1>;
+        };
+        combo_fast_scroll_up {
+            timeout-ms = <30>;
+            key-positions = <1 2>; // Position 1 is SCRL_UP, Position 2 is UP
+            layers = <2>;          // Restricts this combo to only activate on layer 2 (left_layer)
+            bindings = <&mo 3>;    // Momentarily activates layer 3 while held
+            require-prior-idle-ms = <50>;
+        };
+        combo_fast_scroll_dn {
+            timeout-ms = <30>;
+            key-positions = <2 3>; // Position 1 is SCRL_UP, Position 2 is UP
+            layers = <2>;          // Restricts this combo to only activate on layer 2 (left_layer)
+            bindings = <&mo 3>;    // Momentarily activates layer 3 while held
+            require-prior-idle-ms = <50>;
         };
     };
 
