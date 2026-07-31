@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 150    // default: 10
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 180    // default: 10
 
 #include <behaviors.dtsi>
 #include <input/processors.dtsi>
@@ -31,7 +31,7 @@
 &mmv_input_listener {
   fast {
     layers = <3>;
-    input-processors = <&zip_xy_scaler 5 2>;
+    input-processors = <&zip_xy_scaler 7 2>;
   };
 };
 
@@ -260,7 +260,7 @@
         shift_caps: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             bindings = <&kp LSHIFT>, <&kp CAPS>;
         };
 
